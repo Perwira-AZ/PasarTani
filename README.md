@@ -10,3 +10,6 @@ Anggota 1: Nur Azzam Wafiuddin - 21/479115/TK/52806
 
 Anggota 2: Perwira Akhdan Zumarsyah - 21/479386/TK/52881
 
+Class diagram untuk Aplikasi Pasar Tani
+![image](https://github.com/Perwira-AZ/PasarTani/blob/main/assets/classDiagram.png)
+
