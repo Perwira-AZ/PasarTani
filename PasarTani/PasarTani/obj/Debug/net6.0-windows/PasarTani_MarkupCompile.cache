@@ -1,5 +1,5 @@
 ﻿PasarTani
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Kuliah\Semester 5\JunPro\PasarTani\PasarTani\PasarTani\App.xaml
 11407045341
 
-71546481616
+52133836094
 194-200944676
 MainWindow.xaml;
 
-False
+True
 
