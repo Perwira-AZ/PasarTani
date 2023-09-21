@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasarTani
+namespace PasarTani.Model
 {
     internal class Seller
     {
@@ -19,17 +19,17 @@ namespace PasarTani
 
         public int SellerId
         {
-            get{ return _sellerId; }
+            get { return _sellerId; }
         }
 
-        public string Name 
-        { 
+        public string Name
+        {
             get { return _name; }
             set { _name = value; }
         }
 
-        public string PhoneNumber  
-        { 
+        public string PhoneNumber
+        {
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
         }
@@ -59,7 +59,7 @@ namespace PasarTani
 
         public Seller()
         {
-            _items = new List<Item>(); 
+            _items = new List<Item>();
         }
 
         public void AddItem(Item item)
@@ -88,12 +88,12 @@ namespace PasarTani
             }
         }
 
-        public Boolean Bargain(int itemID) 
+        public bool Bargain(int itemID)
         {
             return false; // Add Bargain Logic
         }
 
-        public Boolean Login(string password, string email)
+        public bool Login(string password, string email)
         {
             return false; // Add Auth Logic
         }

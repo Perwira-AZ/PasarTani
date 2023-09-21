@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasarTani
+namespace PasarTani.Model
 {
     internal class Order
     {
@@ -13,13 +13,13 @@ namespace PasarTani
         private int _quantity;
         private Address _orderAddress;
 
-        public int OrderID 
-        { 
-            get { return _orderID;} 
+        public int OrderID
+        {
+            get { return _orderID; }
         }
-        public Item OrderItem 
-        { 
-            get { return _orderItem;}
+        public Item OrderItem
+        {
+            get { return _orderItem; }
             set { _orderItem = value; }
         }
         public int Quantity
@@ -29,8 +29,8 @@ namespace PasarTani
         }
         public Address OrderAddress
         {
-            get { return _orderAddress;}
-            set { _orderAddress = value;}
+            get { return _orderAddress; }
+            set { _orderAddress = value; }
         }
     }
 }

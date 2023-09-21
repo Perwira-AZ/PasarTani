@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasarTani
+namespace PasarTani.Model
 {
     internal class Customer
     {
@@ -54,17 +54,17 @@ namespace PasarTani
             set { _order = value; }
         }
 
-        public Boolean Login(string password, string email)
+        public bool Login(string password, string email)
         {
             return false;
         }
 
         public void Buy(Item item, int quantity)
         {
-            
+
         }
 
-        public Boolean Bargain(string item, int quantity)
+        public bool Bargain(string item, int quantity)
         {
             return true;
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasarTani
+namespace PasarTani.Model
 {
     internal class Address
     {
@@ -35,7 +35,7 @@ namespace PasarTani
 
         public void SetLocation(string location)
         {
-            this.addressName = location;
+            addressName = location;
         }
     }
 }
