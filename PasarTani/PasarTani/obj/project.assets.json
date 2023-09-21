@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kuliah\\Semester 5\\JunPro\\Code Repo\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+      "projectUniqueName": "D:\\Kuliah\\Semester 5\\JunPro\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
       "projectName": "PasarTani",
-      "projectPath": "D:\\Kuliah\\Semester 5\\JunPro\\Code Repo\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+      "projectPath": "D:\\Kuliah\\Semester 5\\JunPro\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
       "packagesPath": "C:\\Users\\Adhitya\\.nuget\\packages\\",
-      "outputPath": "D:\\Kuliah\\Semester 5\\JunPro\\Code Repo\\PasarTani\\PasarTani\\PasarTani\\obj\\",
+      "outputPath": "D:\\Kuliah\\Semester 5\\JunPro\\PasarTani\\PasarTani\\PasarTani\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Adhitya\\AppData\\Roaming\\NuGet\\NuGet.Config",
