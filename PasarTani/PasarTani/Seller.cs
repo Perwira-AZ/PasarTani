@@ -13,6 +13,7 @@ namespace PasarTani
         private string _phoneNumber;
         private string _email;
         private string _password;
+        private Address _address;
         private List<Item> _items;
 
 
@@ -43,6 +44,12 @@ namespace PasarTani
         {
             get { return _password; }
             set { _password = value; }
+        }
+
+        public Address Address
+        {
+            get { return _address; }
+            set { _address = value; }
         }
 
         public List<Item> Items
