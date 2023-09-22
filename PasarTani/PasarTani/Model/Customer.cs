@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasarTani
+namespace PasarTani.Model
 {
     internal class Customer
     {
@@ -13,6 +13,8 @@ namespace PasarTani
         private string _phone_number;
         private string _email;
         private string _password;
+        private Address _address;
+        private Order _order;
 
         public int CustomerID
         {
@@ -40,17 +42,29 @@ namespace PasarTani
             get { return _password; }
         }
 
-        public Boolean Login(string password, string email)
+        public Address Address
+        {
+            get { return _address; }
+            set { _address = value; }
+        }
+
+        public Order Order
+        {
+            get { return _order; }
+            set { _order = value; }
+        }
+
+        public bool Login(string password, string email)
         {
             return false;
         }
 
-        public void Buy(string item, int quantity)
+        public void Buy(Item item, int quantity)
         {
-            
+
         }
 
-        public Boolean Bargain(string item, int quantity)
+        public bool Bargain(string item, int quantity)
         {
             return true;
         }
