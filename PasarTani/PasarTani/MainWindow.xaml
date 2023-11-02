@@ -37,6 +37,22 @@
 					   FontSize="24"/>
 
             <StackPanel Grid.Row="1">
+                <RadioButton Content="Sign Up"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding SignUpViewCommand}"/>
+
+                <RadioButton Content="Login"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding LoginViewCommand}"/>
+
                 <RadioButton Content="Beranda"
 							 Height="50"
 							 Foreground="White"

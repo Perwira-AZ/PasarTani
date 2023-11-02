@@ -53,7 +53,7 @@ namespace PasarTani.MVVM.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PasarTani;V1.0.0.0;component/mvvm/view/loginpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PasarTani;component/mvvm/view/loginpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\View\LoginPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

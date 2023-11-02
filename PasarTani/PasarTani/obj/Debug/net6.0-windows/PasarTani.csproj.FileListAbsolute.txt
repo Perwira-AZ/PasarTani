@@ -27,3 +27,10 @@ C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\
 C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\PasarTani.pdb
 C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\PasarTani.genruntimeconfig.cache
 C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\ref\PasarTani.dll
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\SignUpView.g.cs
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\SignUpView.baml
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\LoginView.g.cs
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\LoginView.baml
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\bin\Debug\net6.0-windows\Npgsql.dll
+C:\Users\pakhd\OneDrive\Desktop\Folder\JunPro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\PasarTani.csproj.CopyComplete

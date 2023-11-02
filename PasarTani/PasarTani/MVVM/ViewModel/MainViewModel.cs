@@ -11,9 +11,13 @@ namespace PasarTani.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand SellerViewCommand { get; set; }
+        public RelayCommand SignUpViewCommand { get; set; }
+        public RelayCommand LoginViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public SellerViewModel SellerVM { get; set; }
+        public SignUpViewModel SignUpVM { get; set; }
+        public LoginViewModel LoginVM { get; set; }
 
         private object _currentView;
 
@@ -31,6 +35,8 @@ namespace PasarTani.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             SellerVM = new SellerViewModel();
+            SignUpVM= new SignUpViewModel();
+            LoginVM= new LoginViewModel();
 
             CurrentView = HomeVM;
 
@@ -42,6 +48,16 @@ namespace PasarTani.MVVM.ViewModel
             SellerViewCommand = new RelayCommand(o =>
             {
                 CurrentView = SellerVM;
+            });
+
+            SignUpViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = SignUpVM;
+            });
+
+            LoginViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = LoginVM;
             });
         }
     }

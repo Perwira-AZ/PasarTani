@@ -2,18 +2,18 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="MVVM\View\LoginPage.xaml.cs">
+    <Compile Update="MVVM\View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\SingUpPage.xaml.cs">
+    <Compile Update="MVVM\View\SignUpView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MVVM\View\LoginPage.xaml">
+    <Page Update="MVVM\View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\SingUpPage.xaml">
+    <Page Update="MVVM\View\SignUpView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
