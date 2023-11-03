@@ -7,10 +7,10 @@
         xmlns:viewModel="clr-namespace:PasarTani.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
-		WindowStyle= "None"
+		WindowStyle= "SingleBorderWindow"
 		ResizeMode= "NoResize"
 		Background= "Transparent"
-		AllowsTransparency="True">
+		AllowsTransparency="False">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>

@@ -47,11 +47,19 @@ namespace PasarTani.MVVM.View
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("_password", passPassword.Password);
-                if ((int)cmd.ExecuteScalar() != 0)
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    MessageBox.Show("Selamat Datang", "Login as Seller", MessageBoxButton.OK, MessageBoxImage.Information);
-                    conn.Close();
-                    txtEmail.Text = passPassword.Password = null;
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+
+                        if (id != 0)
+                        {
+                            MessageBox.Show($"Selamat Datang, {name}", "Login as Seller", MessageBoxButton.OK, MessageBoxImage.Information);
+                            txtEmail.Text = passPassword.Password = null;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -70,11 +78,19 @@ namespace PasarTani.MVVM.View
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("_password", passPassword.Password);
-                if ((int)cmd.ExecuteScalar() != 0)
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    MessageBox.Show("Selamat Datang", "Login as Customer", MessageBoxButton.OK, MessageBoxImage.Information);
-                    conn.Close();
-                    txtEmail.Text = passPassword.Password = null;
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+
+                        if (id != 0)
+                        {
+                            MessageBox.Show($"Selamat Datang, {name}", "Login as Customer", MessageBoxButton.OK, MessageBoxImage.Information);
+                            txtEmail.Text = passPassword.Password = null;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

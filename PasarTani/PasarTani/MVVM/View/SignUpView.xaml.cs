@@ -66,7 +66,7 @@ namespace PasarTani.MVVM.View
             try
             {
                 conn.Open();
-                sql = @"select * from customer_insert(:_name,:_phone_number,:_email)";
+                sql = @"select * from customer_insert(:_name,:_phone_number,:_email,:_password)";
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_name", txtName.Text);
                 cmd.Parameters.AddWithValue("_phone_number", txtPhone.Text);
