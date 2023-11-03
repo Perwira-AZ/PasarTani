@@ -20,7 +20,7 @@
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top">
                         <Label Content="Name:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
-                        <TextBox TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
+                        <TextBox x:Name="txtName" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
@@ -30,7 +30,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                         <Label Content="Email:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
-                        <TextBox TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
+                        <TextBox x:Name="txtEmail" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
@@ -40,7 +40,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                         <Label Content="Phone:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
-                        <TextBox TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180">
+                        <TextBox x:Name="txtPhone" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
@@ -51,12 +51,12 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,3">
                         <Label Content="Password:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16"/>
                         <Border  Height="30" Width="180" Background="White" CornerRadius="15">
-                            <PasswordBox  Background="Transparent" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="180" BorderBrush="Transparent"/>
+                            <PasswordBox x:Name="passPassword"  Background="Transparent" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="180" BorderBrush="Transparent"/>
                         </Border>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="260" VerticalAlignment="Bottom" Margin="0,0,0,10">
-                    <Button Background="#ffc554" Foreground="White" BorderThickness="0" Width="120" Margin="0,0,10,0">
+                    <Button x:Name="btnSeller" Background="#ffc554" Foreground="White" BorderThickness="0" Width="120" Margin="0,0,10,0" Click="btnSeller_Click">
                         Sing Up as Seller
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -64,7 +64,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Background="#4eff91" Foreground="White" BorderThickness="0" VerticalAlignment="Top" Height="32" Width="120" Margin="10,0,0,0">
+                    <Button x:Name="btnCustomer" Background="#4eff91" Foreground="White" BorderThickness="0" VerticalAlignment="Top" Height="32" Width="120" Margin="10,0,0,0" Click="btnCustomer_Click">
                         Sing Up as Customer
                         <Button.Resources>
                             <Style TargetType="Border">

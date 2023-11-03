@@ -20,7 +20,7 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,16">
                         <Label Content="Email:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
-                        <TextBox TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
+                        <TextBox x:Name="txtEmail" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
@@ -31,13 +31,13 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <Label Content="Password:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16"/>
                         <Border  Height="30" Width="180" Background="White" CornerRadius="15">
-                            <PasswordBox  Background="Transparent" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="180" BorderBrush="Transparent"/>
+                            <PasswordBox x:Name="passPassword"  Background="Transparent" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="180" BorderBrush="Transparent"/>
                         </Border>
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="41">
-                    <Button Background="#ffc554" Foreground="White" BorderThickness="0" HorizontalAlignment="Left" Width="120" Height="29" VerticalAlignment="Center" Margin="0,0,10,0">
+                    <Button x:Name="btnSeller" Background="#ffc554" Foreground="White" BorderThickness="0" HorizontalAlignment="Left" Width="120" Height="29" VerticalAlignment="Center" Margin="0,0,10,0" Click="btnSeller_Click">
                         Login as Seller
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -45,7 +45,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Background="#4eff91" Foreground="White" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="32">
+                    <Button x:Name="btnCustomer" Background="#4eff91" Foreground="White" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="32" Click="btnCustomer_Click">
                         Login as Customer
                         <Button.Resources>
                             <Style TargetType="Border">

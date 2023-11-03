@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using Npgsql;
 
 namespace PasarTani.MVVM.View
 {
@@ -23,11 +25,64 @@ namespace PasarTani.MVVM.View
         public SignUpView()
         {
             InitializeComponent();
+            this.Loaded += SignUpView_Loaded;
+        }
+        private NpgsqlConnection conn;
+        string connstring = "Host=junpropostgresql.postgres.database.azure.com;Port=5432;Username=postgres@junpropostgresql;Password=Informatika1;Database=PasarTaniDB";
+        public static NpgsqlCommand cmd;
+        private string sql = null;
+
+        public void SignUpView_Loaded(object sender, RoutedEventArgs e)
+        {
+            conn = new NpgsqlConnection(connstring);
+        }
+        private void btnSeller_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select * from seller_insert(:_name,:_phone_number,:_email,:_password)";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_name", txtName.Text);
+                cmd.Parameters.AddWithValue("_phone_number", txtPhone.Text);
+                cmd.Parameters.AddWithValue("_email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("_password", passPassword.Password);
+                if ((int)cmd.ExecuteScalar() == 1)
+                {
+                    MessageBox.Show("Akun berhasil dibuat", "Sign Up as Seller", MessageBoxButton.OK, MessageBoxImage.Information);
+                    conn.Close();
+                    txtName.Text = txtPhone.Text = txtEmail.Text = passPassword.Password = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: "+ex.Message, "Sign Up as Seller", MessageBoxButton.OK, MessageBoxImage.Error);
+                conn.Close();
+            }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnCustomer_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                conn.Open();
+                sql = @"select * from customer_insert(:_name,:_phone_number,:_email)";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_name", txtName.Text);
+                cmd.Parameters.AddWithValue("_phone_number", txtPhone.Text);
+                cmd.Parameters.AddWithValue("_email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("_password", passPassword.Password);
+                if ((int)cmd.ExecuteScalar() == 1)
+                {
+                    MessageBox.Show("Akun berhasil dibuat", "Sign Up as Customer", MessageBoxButton.OK, MessageBoxImage.Information);
+                    conn.Close();
+                    txtName.Text = txtPhone.Text = txtEmail.Text = passPassword.Password = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Sign Up as Customer", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
