@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasarTani.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PasarTani.Model
 {
-    internal class Customer
+    internal class Customer : IUser
     {
         private int _customerID;
         private string _name;
@@ -54,6 +55,10 @@ namespace PasarTani.Model
             set { _order = value; }
         }
 
+        public int UserID => throw new NotImplementedException();
+
+        string IUser.Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public bool Login(string password, string email)
         {
             return false;
@@ -67,6 +72,11 @@ namespace PasarTani.Model
         public bool Bargain(string item, int quantity)
         {
             return true;
+        }
+        public bool Authenticate(string password, string email)
+        {
+            
+            return false;
         }
     }
 }

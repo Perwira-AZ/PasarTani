@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasarTani.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace PasarTani.Model
 {
-    internal class Seller
+    internal class Seller: IUser
     {
-        private int _sellerId;
+        private readonly int _sellerId;
         private string _name;
         private string _phoneNumber;
         private string _email;
         private string _password;
         private Address _address;
-        private List<Item> _items;
+        private readonly List<Item> _items;
 
-
-        public int SellerId
+        public int UserID
         {
             get { return _sellerId; }
         }
@@ -56,6 +56,8 @@ namespace PasarTani.Model
         {
             get { return _items; }
         }
+
+        string IUser.Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Seller()
         {
@@ -96,6 +98,11 @@ namespace PasarTani.Model
         public bool Login(string password, string email)
         {
             return false; // Add Auth Logic
+        }
+        public bool Authenticate(string password, string email)
+        {
+            // Authentication logic
+            return false;
         }
     }
 }
