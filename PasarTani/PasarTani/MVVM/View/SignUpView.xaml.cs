@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using Npgsql;
+using PasarTani.MVVM.Model;
 
 namespace PasarTani.MVVM.View
 {
@@ -28,13 +29,12 @@ namespace PasarTani.MVVM.View
             this.Loaded += SignUpView_Loaded;
         }
         private NpgsqlConnection conn;
-        string connstring = "Host=junpropostgresql.postgres.database.azure.com;Port=5432;Username=postgres@junpropostgresql;Password=Informatika1;Database=PasarTaniDB";
         public static NpgsqlCommand cmd;
         private string sql = null;
 
         public void SignUpView_Loaded(object sender, RoutedEventArgs e)
         {
-            conn = new NpgsqlConnection(connstring);
+            conn = new NpgsqlConnection(SharedData.connstring);
         }
         private void btnSeller_Click(object sender, RoutedEventArgs e)
         {

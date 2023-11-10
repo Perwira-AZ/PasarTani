@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using Npgsql;
 using System.Xml.Linq;
+using PasarTani.MVVM.Model;
 
 namespace PasarTani.MVVM.View
 {
@@ -29,13 +30,12 @@ namespace PasarTani.MVVM.View
             this.Loaded += LoginView_Loaded;
         }
         private NpgsqlConnection conn;
-        string connstring = "Host=junpropostgresql.postgres.database.azure.com;Port=5432;Username=postgres@junpropostgresql;Password=Informatika1;Database=PasarTaniDB";
         public static NpgsqlCommand cmd;
         private string sql = null;
 
         public void LoginView_Loaded(object sender, RoutedEventArgs e)
         {
-            conn = new NpgsqlConnection(connstring);
+            conn = new NpgsqlConnection(SharedData.connstring);
         }
 
         private void btnSeller_Click(object sender, RoutedEventArgs e)
@@ -57,6 +57,8 @@ namespace PasarTani.MVVM.View
                         if (id != 0)
                         {
                             MessageBox.Show($"Selamat Datang, {name}", "Login as Seller", MessageBoxButton.OK, MessageBoxImage.Information);
+                            SharedData.isAccountSeller = true;
+                            SharedData.currentAccountLoginID = id;
                             txtEmail.Text = passPassword.Password = null;
                         }
                     }
@@ -88,6 +90,8 @@ namespace PasarTani.MVVM.View
                         if (id != 0)
                         {
                             MessageBox.Show($"Selamat Datang, {name}", "Login as Customer", MessageBoxButton.OK, MessageBoxImage.Information);
+                            SharedData.isAccountSeller = false;
+                            SharedData.currentAccountLoginID = id;
                             txtEmail.Text = passPassword.Password = null;
                         }
                     }
