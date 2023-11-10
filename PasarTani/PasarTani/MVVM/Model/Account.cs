@@ -9,12 +9,12 @@ namespace PasarTani.MVVM.Model
 {
     internal class Account
     {
-        private int _id;
-        private string _name;
-        private string _phone_number;
-        private string _email;
-        private string _password;
-        private Address _address;
+        protected int _id;
+        protected string _name;
+        protected string _phone_number;
+        protected string _email;
+        protected string _password;
+        protected Address _address;
         public int ID
         {
             get { return _id; }
