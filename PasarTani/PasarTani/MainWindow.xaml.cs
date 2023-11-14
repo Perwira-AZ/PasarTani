@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using Npgsql;
+using PasarTani.MVVM.Model;
 
 namespace PasarTani
 {
@@ -23,6 +27,15 @@ namespace PasarTani
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded+= MainWindow_Loaded;
+        }
+        private NpgsqlConnection conn;
+        public static NpgsqlCommand cmd;
+        private string sql = null;
+
+        public void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            conn = new NpgsqlConnection(SharedData.connstring);
         }
     }
 }

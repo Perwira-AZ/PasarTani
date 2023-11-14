@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="PasarTani.MVVM.View.SignUpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PasarTani.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="20" Margin="68,0,68,143">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 2">
+                    <GradientStop Color="#844EFF" Offset="0.0"/>
+                    <GradientStop Color="#4BB2FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Text="Create Account" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,21,0,0"/>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top">
+                        <Label Content="Name:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtName" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <Label Content="Email:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtEmail" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180" Height="32">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <Label Content="Phone:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtPhone" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="180">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,3">
+                        <Label Content="Password:" Width="81" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="white" FontSize="16"/>
+                        <Border  Height="30" Width="180" Background="White" CornerRadius="15">
+                            <PasswordBox x:Name="passPassword"  Background="Transparent" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="180" BorderBrush="Transparent"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="260" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                    <Button x:Name="btnSeller" Background="#ffc554" Foreground="White" BorderThickness="0" Width="120" Margin="0,0,10,0" Click="btnSeller_Click">
+                        Sing Up as Seller
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button x:Name="btnCustomer" Background="#4eff91" Foreground="White" BorderThickness="0" VerticalAlignment="Top" Height="32" Width="120" Margin="10,0,0,0" Click="btnCustomer_Click">
+                        Sing Up as Customer
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

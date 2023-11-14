@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\Junior Project\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj": {}
+    "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\Junior Project\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj": {
+    "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\Junior Project\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+        "projectUniqueName": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
         "projectName": "PasarTani",
-        "projectPath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\Junior Project\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+        "projectPath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
         "packagesPath": "C:\\Users\\nuraz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\Junior Project\\PasarTani\\PasarTani\\PasarTani\\obj\\",
+        "outputPath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nuraz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

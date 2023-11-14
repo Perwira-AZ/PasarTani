@@ -4,9 +4,92 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasarTani"
+        xmlns:viewModel="clr-namespace:PasarTani.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="920"
+		WindowStyle= "SingleBorderWindow"
+		ResizeMode= "NoResize"
+		Background= "Transparent"
+		AllowsTransparency="False">
 
-    </Grid>
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background = "#272537" 
+			CornerRadius= "20">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Pasar Tani"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   Foreground="White"
+					   FontSize="24"/>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Sign Up"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding SignUpViewCommand}"/>
+
+                <RadioButton Content="Login"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding LoginViewCommand}"/>
+
+                <RadioButton Content="Beranda"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
+
+                <RadioButton Content="Penjual"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding SellerViewCommand}"/>
+
+                <RadioButton Content="Pembeli"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+
+            <TextBox Width="250"
+                     Height="40"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"
+                     Style="{StaticResource ModernTextbox}"/>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="15"
+                            Content="{Binding CurrentView}"/>
+        </Grid>
+
+
+
+    </Border>
 </Window>

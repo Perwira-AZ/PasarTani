@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "SrRwrrjbl56kZwWGi1IXQyo0tOWXEuhb2ogmdqm3nBobJVsWedjT4asypF5dAcu2daFfV40V+Vu9OnFFmuIDsQ==",
+  "dgSpecHash": "HxWQECudUleRZlZpZaX+8BNfv03pdQg+7nOPr6wLr0TJOKr2BjKd1zsCX2yO35fFMbz78kjE0XTA/rHXvETjNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\Junior Project\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nuraz\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\nuraz\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
+    "C:\\Users\\nuraz\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
