@@ -8,34 +8,38 @@ namespace PasarTani.Model
 {
     internal class Address
     {
-        private int addressID;
-        private string addressName;
-        private string city;
-        private string province;
+        private int _addressID;
+        private string _addressName;
+        private string _city;
+        private string _province;
 
         public int AddressID
         {
-            get { return addressID; }
+            get { return _addressID; }
+            set { _addressID = value; }
         }
 
         public string AddressName
         {
-            get { return addressName; }
+            get { return _addressName; }
+            set { _addressName = value; }
         }
 
         public string City
         {
-            get { return city; }
+            get { return _city; }
+            set { _city = value; }
         }
 
         public string Province
         {
-            get { return province; }
+            get { return _province; }
+            set { _province = value; }
         }
 
         public void SetLocation(string location)
         {
-            addressName = location;
+            _addressName = location;
         }
     }
 }
