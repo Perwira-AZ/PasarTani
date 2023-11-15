@@ -53,6 +53,7 @@ namespace PasarTani.MVVM.View
                     conn.Close();
                     txtName.Text = txtPhone.Text = txtEmail.Text = passPassword.Password = null;
                 }
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -78,6 +79,7 @@ namespace PasarTani.MVVM.View
                     conn.Close();
                     txtName.Text = txtPhone.Text = txtEmail.Text = passPassword.Password = null;
                 }
+                conn.Close();
             }
             catch (Exception ex)
             {
