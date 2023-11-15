@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data;
 using Npgsql;
 using PasarTani.MVVM.Model;
+using System.ComponentModel;
 
 namespace PasarTani
 {
@@ -37,5 +38,13 @@ namespace PasarTani
         {
             conn = new NpgsqlConnection(SharedData.connstring);
         }
+
+        
+
+
+
+
+
+
     }
 }

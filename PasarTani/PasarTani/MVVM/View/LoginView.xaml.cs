@@ -16,6 +16,8 @@ using System.Data;
 using Npgsql;
 using System.Xml.Linq;
 using PasarTani.MVVM.Model;
+using System.Diagnostics;
+
 
 namespace PasarTani.MVVM.View
 {
@@ -49,20 +51,22 @@ namespace PasarTani.MVVM.View
                 cmd.Parameters.AddWithValue("_password", passPassword.Password);
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
+                    Trace.WriteLine("text");
                     while (reader.Read())
                     {
                         int id = reader.GetInt32(0);
                         string name = reader.GetString(1);
-
                         if (id != 0)
                         {
                             MessageBox.Show($"Selamat Datang, {name}", "Login as Seller", MessageBoxButton.OK, MessageBoxImage.Information);
                             SharedData.isAccountSeller = true;
                             SharedData.currentAccountLoginID = id;
+                            SharedData.currentAccountName = name;
                             txtEmail.Text = passPassword.Password = null;
                         }
                     }
                 }
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -96,6 +100,7 @@ namespace PasarTani.MVVM.View
                         }
                     }
                 }
+                conn.Close();
             }
             catch (Exception ex)
             {

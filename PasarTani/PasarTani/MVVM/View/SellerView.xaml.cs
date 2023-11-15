@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PasarTani.MVVM.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +20,32 @@ namespace PasarTani.MVVM.View
     /// <summary>
     /// Interaction logic for SellerView.xaml
     /// </summary>
-    public partial class SellerView : UserControl
+    public partial class SellerView : UserControl, INotifyPropertyChanged
     {
         public SellerView()
         {
             InitializeComponent();
+            DataContext = this;
+        }
+
+
+        //Seller Page
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private string sellerBoundText;
+        public string SellerBoundText
+        {
+            get { return sellerBoundText; }
+            set
+            {
+                sellerBoundText = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SellerBoundText"));
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            SellerBoundText = "Welcome Back " + SharedData.currentAccountName + "!";
         }
     }
 }

@@ -8,8 +8,9 @@ namespace PasarTani.MVVM.Model
 {
     internal static class SharedData
     {
-        public static string connstring = "Host = junpro-db.postgres.database.azure.com; Port=5432;Username=junpro@junpro-db; Password=Wafiuddin1;Database=postgres";
+        public static string connstring = "Host = satao.db.elephantsql.com; Port=5432;Username=tpnfoxpw; Password=r2osulaec2IWjh_SKje5p-pw3v4TtVhO;Database=tpnfoxpw";
         public static int currentAccountLoginID = 1;
+        public static string currentAccountName = "";
         public static bool isAccountSeller = true; 
     }
 }
