@@ -115,5 +115,50 @@ namespace PasarTani.MVVM.Services
 
             conn.Close();
         }
+
+        public void UpdateItem(int sellerId, int itemId, string newItemName, int newStock, decimal newPrice)
+        {
+            conn.Open();
+
+            var sql = "SELECT __update_item(@sellerId, @itemId, @newItemName, @newStock, @newPrice)";
+            using var cmd = new NpgsqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("sellerId", sellerId);
+            cmd.Parameters.AddWithValue("itemId", itemId);
+            cmd.Parameters.AddWithValue("newItemName", newItemName);
+            cmd.Parameters.AddWithValue("newStock", newStock);
+            cmd.Parameters.AddWithValue("newPrice", newPrice);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            conn.Close();
+        }
+
+        public void DeleteItem(int sellerId, int itemId)
+        {
+            conn.Open();
+
+            var sql = "SELECT __delete_item(@sellerId, @itemId)";
+            using var cmd = new NpgsqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("sellerId", sellerId);
+            cmd.Parameters.AddWithValue("itemId", itemId);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            conn.Close();
+        }
     }
 }

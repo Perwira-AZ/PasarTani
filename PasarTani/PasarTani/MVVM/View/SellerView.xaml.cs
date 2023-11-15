@@ -57,7 +57,7 @@ namespace PasarTani.MVVM.View
                 Trace.WriteLine($"Item ID: {item.ItemID}, Name: {item.ItemName}, Seller ID: {item.SellerID}, Stock: {item.Stock}, Price: {item.Price}");
             }
 
-            itemServices.AddItem(2, "Jangkar", 2, 4000);
+            itemServices.DeleteItem(2, 4);
         }
 
 
