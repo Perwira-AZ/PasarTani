@@ -91,9 +91,9 @@ namespace PasarTani.MVVM.Services
         {
             conn.Open();
 
-            var sql = "SELECT __add_address(@addressText, @cityName, @provinceName)";
+            var sql = "SELECT __add_address(@addressName, @cityName, @provinceName)";
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("addressText", addressName);
+            cmd.Parameters.AddWithValue("addressName", addressName);
             cmd.Parameters.AddWithValue("cityName", cityName);
             cmd.Parameters.AddWithValue("provinceName", provinceName);
 
@@ -113,10 +113,10 @@ namespace PasarTani.MVVM.Services
         {
             conn.Open();
 
-            var sql = "SELECT __update_address_by_id(@addressId, @newAddressText, @newCityName, @newProvinceName)";
+            var sql = "SELECT __update_address_by_id(@addressId, @newAddressName, @newCityName, @newProvinceName)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("addressId", addressId);
-            cmd.Parameters.AddWithValue("newAddressText", newAddressName);
+            cmd.Parameters.AddWithValue("newAddressName", newAddressName);
             cmd.Parameters.AddWithValue("newCityName", newCityName);
             cmd.Parameters.AddWithValue("newProvinceName", newProvinceName);
 
