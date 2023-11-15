@@ -1,7 +1,10 @@
-﻿using PasarTani.MVVM.Model;
+﻿using PasarTani.Model;
+using PasarTani.MVVM.Model;
+using PasarTani.MVVM.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +48,18 @@ namespace PasarTani.MVVM.View
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            ItemServices itemServices = new ItemServices();
+
             SellerBoundText = "Welcome Back " + SharedData.currentAccountName + "!";
+            
+            foreach (var item in itemServices.GetItemsBySellerId(1))
+            {
+                Trace.WriteLine($"Item ID: {item.ItemID}, Name: {item.ItemName}, Seller ID: {item.SellerID}, Stock: {item.Stock}, Price: {item.Price}");
+            }
+
+            itemServices.AddItem(2, "Jangkar", 2, 4000);
         }
+
+
     }
 }
