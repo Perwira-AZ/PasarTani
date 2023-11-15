@@ -48,16 +48,15 @@ namespace PasarTani.MVVM.View
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            ItemServices itemServices = new ItemServices();
+            OrderServices orderServices = new OrderServices();
 
             SellerBoundText = "Welcome Back " + SharedData.currentAccountName + "!";
             
-            foreach (var item in itemServices.GetItemsBySellerId(1))
+            foreach (var item in orderServices.GetAllOrders())
             {
-                Trace.WriteLine($"Item ID: {item.ItemID}, Name: {item.ItemName}, Seller ID: {item.SellerID}, Stock: {item.Stock}, Price: {item.Price}");
+                Trace.WriteLine($"Order ID: {item.OrderID}, Customer ID: {item.CustomerID}, Item ID: {item.ItemID}, AddressID: {item.AddressID}, Quanitty: {item.Quantity}");
             }
 
-            itemServices.DeleteItem(2, 4);
         }
 
 
