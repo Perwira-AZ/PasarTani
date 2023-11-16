@@ -99,7 +99,7 @@ namespace PasarTani.MVVM.Services
 
             Item item = null;
 
-            var sql = "SELECT * FROM get_item_by_id(@itemId)";
+            var sql = "SELECT * FROM __get_item_by_id(@itemId)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("itemId", itemId);
 
