@@ -18,7 +18,7 @@ namespace PasarTani.MVVM.Services
 
         private NpgsqlConnection conn = new NpgsqlConnection(SharedData.connstring);
 
-
+        //Order and Address Still Null, Get Manually from Address Services and Order Services
         public List<Customer> GetAllCustomers()
         {
             conn.Open();
@@ -56,6 +56,7 @@ namespace PasarTani.MVVM.Services
             return customers;
         }
 
+        //Order and Address Still Null, Get Manually from Address Services and Order Services
         public Customer GetCustomerById(int customerId)
         {
             conn.Open();
