@@ -70,3 +70,7 @@ C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\Pas
 C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\PasarTani.pdb
 C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\PasarTani.genruntimeconfig.cache
 C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\ref\PasarTani.dll
+C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\BuyerView.g.cs
+C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailedItem.g.cs
+C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\BuyerView.baml
+C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailedItem.baml

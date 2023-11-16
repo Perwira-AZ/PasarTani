@@ -1,6 +1,7 @@
 ﻿using PasarTani.Model;
 using PasarTani.MVVM.Model;
 using PasarTani.MVVM.Services;
+using PasarTani.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace PasarTani.MVVM.View
         public SellerView()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = new SellerViewModel();
         }
 
 
