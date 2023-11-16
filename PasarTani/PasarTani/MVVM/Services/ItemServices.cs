@@ -93,6 +93,42 @@ namespace PasarTani.MVVM.Services
             return items;
         }
 
+        public Item GetItemById(int itemId)
+        {
+            conn.Open();
+
+            Item item = null;
+
+            var sql = "SELECT * FROM get_item_by_id(@itemId)";
+            using var cmd = new NpgsqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("itemId", itemId);
+
+            try
+            {
+                using NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    item = new Item
+                    {
+                        ItemID = reader.GetInt32(0),
+                        ItemName = reader.GetString(1),
+                        SellerID = reader.GetInt32(2),
+                        Stock = reader.GetInt32(3),
+                        Price = reader.GetDecimal(4)
+                    };
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            conn.Close();
+            return item;
+        }
+
         public void AddItem(int sellerId, string itemName, int stock, decimal price)
         {
             conn.Open();
