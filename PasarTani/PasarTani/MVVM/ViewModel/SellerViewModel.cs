@@ -27,7 +27,6 @@ namespace PasarTani.MVVM.ViewModel
             {
                 Items.Add(item);
             }
-            Console.WriteLine(items);
         }
     }
 }

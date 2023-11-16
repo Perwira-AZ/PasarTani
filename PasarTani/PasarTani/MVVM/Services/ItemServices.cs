@@ -20,7 +20,7 @@ namespace PasarTani.MVVM.Services
 
         public List<Item> getAllItems()
         {
-            /*conn.Open();
+            conn.Open();
 
             var sql = @"SELECT * FROM __get_all_items()";
             using var cmd = new NpgsqlCommand(sql, conn);
@@ -51,26 +51,7 @@ namespace PasarTani.MVVM.Services
                 Trace.WriteLine("Error: " + ex.Message);
             }
 
-            conn.Close();*/
-            List<Item> items = new List<Item>();
-            Item item = new Item
-            {
-                ItemID = 123,
-                ItemName = "testItem",
-                SellerID = 1,
-                Stock = 20,
-                Price = 2000,
-            };
-            Item item2 = new Item
-            {
-                ItemID = 124,
-                ItemName = "testItem 2",
-                SellerID = 1,
-                Stock = 15,
-                Price = 5000,
-            };
-            items.Add(item);
-            items.Add(item2);
+            conn.Close();
 
             return items;
         }

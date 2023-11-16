@@ -4,124 +4,54 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PasarTani.MVVM.View"
+             xmlns:vm="clr-namespace:PasarTani.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel>
-                    <StackPanel.Resources>
 
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="Margin" Value="15, 0, 0, 0"/>
-                        </Style>
-                    </StackPanel.Resources>
+    <UserControl.DataContext>
+        <vm:BuyerViewModel />
+    </UserControl.DataContext>
 
-                    <TextBlock Text="Barang yang dapat anda beli"
-                                        Foreground="White"
-                                        FontSize="28"
-                                        HorizontalAlignment="Left"
-                                        Margin="0, 0, 0, 20"/>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="15, 0, 0, 0"/>
+                </Style>
+            </StackPanel.Resources>
 
-                    <WrapPanel >
-                        <Border Width="120"
-                                            Height="150"
-                                            CornerRadius="10"
-                                            Background="#353340"
-                                            Margin="10">
-                            <Grid>
-                                <StackPanel>
-                                    <Border Width="95"
-                                                        Height="65"
-                                                        CornerRadius="6"
-                                                        Background="#525252"
-                                                        Margin="0,10,0,0"
-                                                        HorizontalAlignment="Center">
-                                        <!-- Your additional content here if needed -->
-                                    </Border>
-                                    <TextBlock Text="{Binding Tag, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                           Foreground="White"
-                                                           FontSize="12"
-                                                           FontWeight="Bold"
-                                                           Width="59"
-                                                           Margin="0,5,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                        <Border Width="120"
-                                            Height="150"
-                                            CornerRadius="10"
-                                            Background="#353340"
-                                            Margin="10">
-                            <Grid>
-                                <StackPanel>
-                                    <Border Width="95"
-                                                        Height="65"
-                                                        CornerRadius="6"
-                                                        Background="#525252"
-                                                        Margin="0,10,0,0"
-                                                        HorizontalAlignment="Center">
-                                        <!-- Your additional content here if needed -->
-                                    </Border>
-                                    <TextBlock Text="{Binding Tag, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                           Foreground="White"
-                                                           FontSize="12"
-                                                           FontWeight="Bold"
-                                                           Width="59"
-                                                           Margin="0,5,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                        <Border Width="120"
-                                            Height="150"
-                                            CornerRadius="10"
-                                            Background="#353340"
-                                            Margin="10">
-                            <Grid>
-                                <StackPanel>
-                                    <Border Width="95"
-                                                        Height="65"
-                                                        CornerRadius="6"
-                                                        Background="#525252"
-                                                        Margin="0,10,0,0"
-                                                        HorizontalAlignment="Center">
-                                        <!-- Your additional content here if needed -->
-                                    </Border>
-                                    <TextBlock Text="{Binding Tag, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                           Foreground="White"
-                                                           FontSize="12"
-                                                           FontWeight="Bold"
-                                                           Width="59"
-                                                           Margin="0,5,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                        <Border Width="120"
-                                            Height="150"
-                                            CornerRadius="10"
-                                            Background="#353340"
-                                            Margin="10">
-                            <Grid>
-                                <StackPanel>
-                                    <Border Width="95"
-                                                        Height="65"
-                                                        CornerRadius="6"
-                                                        Background="#525252"
-                                                        Margin="0,10,0,0"
-                                                        HorizontalAlignment="Center">
-                                        <!-- Your additional content here if needed -->
-                                    </Border>
-                                    <TextBlock Text="{Binding Tag, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                                           Foreground="White"
-                                                           FontSize="12"
-                                                           FontWeight="Bold"
-                                                           Width="59"
-                                                           Margin="0,5,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </WrapPanel>
+            <TextBlock Text="Barang yang dapat anda beli"
+                Foreground="White"
+                FontSize="28"
+                HorizontalAlignment="Left"
+                Margin="0, 0, 0, 20"/>
 
-                </StackPanel>
-            </ScrollViewer>
+            <WrapPanel>
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="120" Height="150" CornerRadius="10" Background="#353340" Margin="10">
+                                <Grid>
+                                    <StackPanel>
+                                        <Border Width="95" Height="65" CornerRadius="6" Background="#525252" Margin="0,10,0,0" HorizontalAlignment="Center">
+                                            <!-- Your additional content here if needed -->
+                                        </Border>
+                                        <TextBlock Text="{Binding ItemName}" Foreground="White" FontSize="16" FontWeight="Bold" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Price, StringFormat='Rp{0:N2}'}" Foreground="White" FontSize="12" FontWeight="Normal" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Stock, StringFormat='Stock: {0}'}" Foreground="White" FontSize="12" FontWeight="Normal" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </WrapPanel>
+
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
