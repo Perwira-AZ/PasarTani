@@ -39,6 +39,7 @@ namespace PasarTani.MVVM.Services
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
                         Price = reader.GetDecimal(4),
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
 
                     items.Add(item);
@@ -77,7 +78,8 @@ namespace PasarTani.MVVM.Services
                         ItemName = reader.GetString(1),
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
-                        Price = reader.GetDecimal(4)
+                        Price = reader.GetDecimal(4),
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
 
                     items.Add(item);
@@ -115,7 +117,8 @@ namespace PasarTani.MVVM.Services
                         ItemName = reader.GetString(1),
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
-                        Price = reader.GetDecimal(4)
+                        Price = reader.GetDecimal(4),
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
                     
                 }
@@ -129,16 +132,17 @@ namespace PasarTani.MVVM.Services
             return item;
         }
 
-        public void AddItem(int sellerId, string itemName, int stock, decimal price)
+        public void AddItem(int sellerId, string itemName, int stock, decimal price, string imageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __add_item(@sellerId, @itemName, @stock, @price)";
+            var sql = "SELECT add_item(@itemName, @sellerId, @stock, @price, @imageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("itemName", itemName);
+            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("stock", stock);
             cmd.Parameters.AddWithValue("price", price);
+            cmd.Parameters.AddWithValue("imageUrl", imageUrl);
 
             try
             {
@@ -152,17 +156,18 @@ namespace PasarTani.MVVM.Services
             conn.Close();
         }
 
-        public void UpdateItem(int sellerId, int itemId, string newItemName, int newStock, decimal newPrice)
+        public void UpdateItem(int sellerId, int itemId, string newItemName, int newStock, decimal newPrice, string newImageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __update_item(@sellerId, @itemId, @newItemName, @newStock, @newPrice)";
+            var sql = "SELECT __update_item(@sellerId, @itemId, @newItemName, @newStock, @newPrice, @newImageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("itemId", itemId);
             cmd.Parameters.AddWithValue("newItemName", newItemName);
             cmd.Parameters.AddWithValue("newStock", newStock);
             cmd.Parameters.AddWithValue("newPrice", newPrice);
+            cmd.Parameters.AddWithValue("imageUrl", newImageUrl);
 
             try
             {

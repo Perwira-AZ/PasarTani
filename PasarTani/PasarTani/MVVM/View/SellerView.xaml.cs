@@ -58,6 +58,7 @@ namespace PasarTani.MVVM.View
                 Trace.WriteLine($"Order ID: {item.OrderID}, Customer ID: {item.CustomerID}, Item ID: {item.ItemID}, AddressID: {item.AddressID}, Quanitty: {item.Quantity}");
             }
 
+
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
