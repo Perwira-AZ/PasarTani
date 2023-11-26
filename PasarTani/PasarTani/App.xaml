@@ -28,6 +28,10 @@
                 <view:LoginView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:BuyerViewModel}">
+                <view:BuyerView />
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

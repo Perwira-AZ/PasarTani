@@ -72,7 +72,8 @@
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding BuyerViewCommand}"/>
             </StackPanel>
 
             <TextBox Width="250"
@@ -88,8 +89,6 @@
                             Margin="15"
                             Content="{Binding CurrentView}"/>
         </Grid>
-
-
 
     </Border>
 </Window>
