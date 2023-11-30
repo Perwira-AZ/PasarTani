@@ -13,6 +13,7 @@ namespace PasarTani.Model
         private int _sellerID;
         private int _stock;
         private decimal _price;
+        public string _imageURL;
 
         public int ItemID
         {
@@ -32,13 +33,19 @@ namespace PasarTani.Model
 
         public int SellerID
         {
-            get { return _sellerID;  }
+            get { return _sellerID; }
             set { _sellerID = value; }
         }
         public decimal Price
         {
             get { return _price; }
             set { _price = value; }
+        }
+
+        public string ImageURL
+        {
+            get { return _imageURL; }
+            set { _imageURL = value; }
         }
     }
 }
