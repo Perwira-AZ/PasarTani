@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj": {}
+    "D:\\Kuliah\\Semester 5\\JunPro\\pasar-tani-app\\PasarTani\\PasarTani\\PasarTani.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj": {
+    "D:\\Kuliah\\Semester 5\\JunPro\\pasar-tani-app\\PasarTani\\PasarTani\\PasarTani.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+        "projectUniqueName": "D:\\Kuliah\\Semester 5\\JunPro\\pasar-tani-app\\PasarTani\\PasarTani\\PasarTani.csproj",
         "projectName": "PasarTani",
-        "projectPath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
-        "packagesPath": "C:\\Users\\nuraz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nuraz\\OneDrive\\Documents\\Kuliah\\Kuliah Reguler\\Semester 5\\PasarTani\\PasarTani\\PasarTani\\obj\\",
+        "projectPath": "D:\\Kuliah\\Semester 5\\JunPro\\pasar-tani-app\\PasarTani\\PasarTani\\PasarTani.csproj",
+        "packagesPath": "C:\\Users\\Adhitya\\.nuget\\packages\\",
+        "outputPath": "D:\\Kuliah\\Semester 5\\JunPro\\pasar-tani-app\\PasarTani\\PasarTani\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nuraz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adhitya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -76,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

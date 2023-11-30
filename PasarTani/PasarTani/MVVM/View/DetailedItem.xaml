@@ -6,7 +6,61 @@
              xmlns:local="clr-namespace:PasarTani.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="15, 0, 0, 0"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Text="Deskripsi Barang"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0, 0, 0, 20"/>
+
+            <StackPanel>
+                <Border Width="150"
+                    Height="90"
+                    CornerRadius="10"
+                    Background="#353340"
+                    Margin="10">
+                    <Grid>
+                        <StackPanel>
+                            <Border Width="120"
+                                Height="65"
+                                CornerRadius="6"
+                                Background="#525252"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center">
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <TextBlock Text="Nama Item"
+                       Foreground="White"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Width="90"
+                       Margin="0,5,0,0"
+                       HorizontalAlignment="Center"/>
+                <TextBlock Text="Harga Item"
+                       Foreground="White"
+                       FontSize="12"
+                       FontWeight="Bold"
+                       Width="59"
+                       Margin="0,5,0,0"
+                       HorizontalAlignment="Center"/>
+                <TextBlock TextWrapping="Wrap"
+                       Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                       Foreground="White"
+                       FontSize="12"
+                       Width="550"
+                       HorizontalAlignment="Center"
+                       Margin="0,20,0,30"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
