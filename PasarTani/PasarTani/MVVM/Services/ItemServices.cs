@@ -7,14 +7,23 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Imagekit;
+using Imagekit.Models;
+using Imagekit.Models.Response;
+using Imagekit.Sdk;
+using static Imagekit.Models.CustomMetaDataFieldSchemaObject;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
+using System.IO.Enumeration;
 
 namespace PasarTani.MVVM.Services
 {
     internal class ItemServices
     {
+
         public ItemServices()
         {
-            
+
         }
         private NpgsqlConnection conn = new NpgsqlConnection(SharedData.connstring);
 
@@ -200,6 +209,30 @@ namespace PasarTani.MVVM.Services
             }
 
             conn.Close();
+        }
+
+        public string GenerateUrlImage(string filepath, string uniqueid)
+        {
+            ImagekitClient imagekit = new ImagekitClient(SharedData.imagePublicKey, SharedData.imagePrivateKey, SharedData.imageProductEndPoint);
+
+            byte[] bytes = File.ReadAllBytes(filepath);
+            
+            string filename = uniqueid;
+
+            FileCreateRequest ob = new FileCreateRequest
+            {
+                file = bytes,
+                fileName = filename,
+                useUniqueFileName = true
+            };
+            Result resp2 = imagekit.Upload(ob);
+
+            string imageURL = resp2.url;
+
+            Trace.WriteLine(resp2.url);
+            Trace.WriteLine(imageURL);
+
+            return imageURL;
         }
     }
 }
