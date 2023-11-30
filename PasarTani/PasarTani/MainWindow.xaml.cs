@@ -17,6 +17,7 @@ using System.Data;
 using Npgsql;
 using PasarTani.MVVM.Model;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace PasarTani
 {
@@ -39,12 +40,47 @@ namespace PasarTani
             conn = new NpgsqlConnection(SharedData.connstring);
         }
 
-        
+        private void ContentControl_LayoutUpdated(object sender, EventArgs e)
+        {
+            Trace.WriteLine("Looping Main Window");
 
 
+            if (SharedData.isAccountLogin == true)
+            {
+                SignUpViewTitleMenu.Visibility = Visibility.Collapsed;
+                LoginViewTitleMenu.Visibility = Visibility.Collapsed;
+                btnSignOut.Visibility = Visibility.Visible;
 
 
+                if (SharedData.isAccountSeller == true)
+                {
+                    SellerViewTitleMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    BuyerViewTitleMenu.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                SellerViewTitleMenu.Visibility = Visibility.Collapsed;
+                BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
+                btnSignOut.Visibility = Visibility.Collapsed;
+            }
+        }
 
+        private void btnSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            SharedData.isAccountLogin = false;
+            SellerViewTitleMenu.Visibility = Visibility.Collapsed;
+            BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
+            SignUpViewTitleMenu.Visibility = Visibility.Visible;
+            LoginViewTitleMenu.Visibility = Visibility.Visible;
+            btnSignOut.Visibility = Visibility.Collapsed;
 
+            SharedData.currentAccountName = "";
+            SharedData.temporaryUploadImage = "";
+            SharedData.currentAccountLoginID = 0;
+        }
     }
 }
