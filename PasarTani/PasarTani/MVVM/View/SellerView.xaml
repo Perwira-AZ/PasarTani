@@ -26,14 +26,20 @@
                 FontSize="28"
                 HorizontalAlignment="Right"
                 Margin="0, 0, 10, 0"/>
-                <Button Height="30" Command="{Binding ShowWindowCommand}"  Content="Add Item" Width="100"  />
+                <Button Height="30" Command="{Binding ShowWindowCommand}"  Content="+ Add Item" Width="120" FontSize="16" Background="#FF00FF79">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
 
             <WrapPanel>
                 <ItemsControl ItemsSource="{Binding Items}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
+                            <WrapPanel Orientation="Horizontal"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>

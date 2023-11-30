@@ -5,43 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasarTani.MVVM.View"
         mc:Ignorable="d"
-        Title="SellerViewAddItem" Height="450" Width="800">
+        Title="SellerViewAddItem" Height="450" Width="592">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <!-- Add more RowDefinitions if needed -->
-        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="20" HorizontalAlignment="Center" Width="652">
+            <Border.Background>
+                <SolidColorBrush Color="#FF2C2850"></SolidColorBrush>
+            </Border.Background>
 
-        <!-- Item Name -->
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
-            <Label Content="Name" Margin="5" VerticalAlignment="Top" HorizontalAlignment="left"/>
-            <TextBox Text="{Binding Name}" Width="200"/>
-        </StackPanel>
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Text="Add New Item" Margin="0,15,0,0" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Height="36"/>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    
+                    <!-- Upload Image Button -->
+                    <StackPanel Margin="0,10,0,0">
+                        <Image Name="uploadImgPhoto" Stretch="Fill" Width="150" Height="150"/>
+                        <Button Height="30" HorizontalAlignment="Center" Margin="12,0,0,0" Name="btnOpenImage" VerticalAlignment="Bottom" Width="80" Click="btnOpenImage_Click" Background="#FF2B4BFF" Foreground="White">Open Image
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!-- Item Name -->
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Item name" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+                        <TextBox Text="{Binding Name}" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="500" Height="32">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <!-- Price -->
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,30,0">
+                            <Label Content="Price" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+                            <TextBox Text="{Binding Price}" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="220" Height="32" PreviewTextInput="DecimalValidationTextBox">
+                                <TextBox.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </StackPanel>
+                    
+                        <!-- Stock -->
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="30,0,0,0">
+                            <Label Content="Stock" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+                            <TextBox Text="{Binding Stock}" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="220" Height="32"  PreviewTextInput="NumberValidationTextBox">
+                                <TextBox.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
 
-        <!-- Stock -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-            <Label Content="Stock" Margin="5" VerticalAlignment="Top" HorizontalAlignment="left"/>
-            <TextBox Text="{Binding Stock}" Width="200"/>
-        </StackPanel>
+                    <Button Command="{Binding AddItemCommand}" Background="#FF00FF84" Foreground="White" BorderThickness="0" HorizontalAlignment="Center" Width="200" Height="30" VerticalAlignment="Center" Margin="0,20,0,0" FontSize="16" FontWeight="Bold">
+                        Create Item
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
         
-        <!-- Price -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
-            <Label Content="Price" Margin="5" VerticalAlignment="Top" HorizontalAlignment="left"/>
-            <TextBox Text="{Binding Price}" Width="200"/>
-        </StackPanel>
 
-        <!-- Upload Image Button -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10">
-            <StackPanel>
-                <Button Height="23" HorizontalAlignment="Center" Margin="12,0,0,0" Name="btnOpenImage" VerticalAlignment="Bottom" Width="75" Click="btnOpenImage_Click">>Open</Button>
-                <Image Name="uploadImgPhoto" Stretch="Fill" Width="200" Height="200"/>
-            </StackPanel>
-        </StackPanel>
 
-        <Button Height="30" Command="{Binding AddItemCommand}" Content="Add" Width="70"  VerticalContentAlignment="Center" Padding="5" Margin="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0" />
 
         <!-- Add more StackPanels for additional fields if needed -->
     </Grid>
