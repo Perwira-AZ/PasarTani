@@ -76,9 +76,3 @@ C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\obj\
 C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailedItem.baml
 C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\pakhd\OneDrive\Desktop\Folder\Junpro\PasarTani\PasarTani\PasarTani\bin\Debug\net6.0-windows\RestSharp.dll
-C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
-C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\bin\Debug\net6.0-windows\RestSharp.dll
-C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\BuyerView.g.cs
-C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailedItem.g.cs
-C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\BuyerView.baml
-C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailedItem.baml
