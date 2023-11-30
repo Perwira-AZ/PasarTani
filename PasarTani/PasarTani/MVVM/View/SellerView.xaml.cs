@@ -25,17 +25,17 @@ namespace PasarTani.MVVM.View
     /// <summary>
     /// Interaction logic for SellerView.xaml
     /// </summary>
-    public partial class SellerView : UserControl, INotifyPropertyChanged
+    public partial class SellerView : UserControl
     {
         public SellerView()
         {
             InitializeComponent();
-            DataContext = new SellerViewModel();
+            this.DataContext = new SellerViewModel();
         }
 
         // Experimental section ----------------------------------------------------------------------
         //Seller Page
-        public event PropertyChangedEventHandler? PropertyChanged;
+/*        public event PropertyChangedEventHandler? PropertyChanged;
 
         private string sellerBoundText;
         public string SellerBoundText
@@ -98,7 +98,7 @@ namespace PasarTani.MVVM.View
 
             }
 
-        }
+        }*/
 
         // Experimental section ----------------------------------------------------------------------
         private void CheckBox_Checked(object sender, RoutedEventArgs e)

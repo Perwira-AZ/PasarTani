@@ -1,0 +1,49 @@
+﻿<Window x:Class="PasarTani.MVVM.View.SellerViewAddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasarTani.MVVM.View"
+        mc:Ignorable="d"
+        Title="SellerViewAddItem" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Add more RowDefinitions if needed -->
+        </Grid.RowDefinitions>
+
+        <!-- Item Name -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <Label Content="Name" Margin="5" VerticalAlignment="Top" HorizontalAlignment="left"/>
+            <TextBox Text="{Binding Name}" Width="200"/>
+        </StackPanel>
+
+        <!-- Stock -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+            <Label Content="Stock" Margin="5" VerticalAlignment="Top" HorizontalAlignment="left"/>
+            <TextBox Text="{Binding Stock}" Width="200"/>
+        </StackPanel>
+        
+        <!-- Price -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+            <Label Content="Price" Margin="5" VerticalAlignment="Top" HorizontalAlignment="left"/>
+            <TextBox Text="{Binding Price}" Width="200"/>
+        </StackPanel>
+
+        <!-- Upload Image Button -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10">
+            <StackPanel>
+                <Button Height="23" HorizontalAlignment="Center" Margin="12,0,0,0" Name="btnOpenImage" VerticalAlignment="Bottom" Width="75" Click="btnOpenImage_Click">>Open</Button>
+                <Image Name="uploadImgPhoto" Stretch="Fill" Width="200" Height="200"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Height="30" Command="{Binding AddItemCommand}" Content="Add" Width="70"  VerticalContentAlignment="Center" Padding="5" Margin="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0" />
+
+        <!-- Add more StackPanels for additional fields if needed -->
+    </Grid>
+</Window>
+
