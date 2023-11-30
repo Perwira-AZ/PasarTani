@@ -51,14 +51,19 @@ namespace PasarTani
                 LoginViewTitleMenu.Visibility = Visibility.Collapsed;
                 btnSignOut.Visibility = Visibility.Visible;
 
+                lbLoginGreeting.Visibility = Visibility.Visible;
+                
+
 
                 if (SharedData.isAccountSeller == true)
                 {
                     SellerViewTitleMenu.Visibility = Visibility.Visible;
+                    lbLoginGreeting.Text = "Hello Seller " + SharedData.currentAccountName;
                 }
                 else
                 {
                     BuyerViewTitleMenu.Visibility = Visibility.Visible;
+                    lbLoginGreeting.Text = "Hello Customer " + SharedData.currentAccountName;
                 }
             }
             else
@@ -66,6 +71,9 @@ namespace PasarTani
                 SellerViewTitleMenu.Visibility = Visibility.Collapsed;
                 BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
                 btnSignOut.Visibility = Visibility.Collapsed;
+
+                lbLoginGreeting.Visibility = Visibility.Collapsed;
+
             }
         }
 
@@ -74,9 +82,12 @@ namespace PasarTani
             SharedData.isAccountLogin = false;
             SellerViewTitleMenu.Visibility = Visibility.Collapsed;
             BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
+            
             SignUpViewTitleMenu.Visibility = Visibility.Visible;
             LoginViewTitleMenu.Visibility = Visibility.Visible;
+            
             btnSignOut.Visibility = Visibility.Collapsed;
+            lbLoginGreeting.Visibility = Visibility.Collapsed;
 
             SharedData.currentAccountName = "";
             SharedData.temporaryUploadImage = "";
