@@ -14,18 +14,35 @@
                    Margin="0, 0, 0, 20"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10" MaxHeight="400">
                 <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="No" Binding="{Binding no}" />
                         <DataGridTextColumn Header="Barang" Binding="{Binding name}" />
-                        <DataGridTextColumn Header="09/11/2023" Binding="{Binding Date_09_11_2023}" />
-                        <DataGridTextColumn Header="10/11/2023" Binding="{Binding Date_10_11_2023}" />
-                        <DataGridTextColumn Header="13/11/2023" Binding="{Binding Date_13_11_2023}" />
-                        <DataGridTextColumn Header="14/11/2023" Binding="{Binding Date_14_11_2023}" />
-                        <DataGridTextColumn Header="15/11/2023" Binding="{Binding Date_15_11_2023}" />
-                        <DataGridTextColumn Header="16/11/2023" Binding="{Binding Date_16_11_2023}" />
-                        <DataGridTextColumn Header="17/11/2023" Binding="{Binding Date_17_11_2023}" />
+
+                        <!-- Dynamically generate columns for each date in DateValues -->
+                        <DataGridTemplateColumn Header="Dates">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ItemsControl ItemsSource="{Binding DateValues}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Text="{Binding Key, StringFormat='{}{0}: '}" Grid.Column="0" Margin="0,0,5,0"/>
+                                                        <TextBlock Text="{Binding Value, StringFormat='Rp{0}'}" Grid.Column="2"/>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
