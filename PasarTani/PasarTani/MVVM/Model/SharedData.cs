@@ -16,6 +16,5 @@ namespace PasarTani.MVVM.Model
         public static string temporaryUploadImage = "";
         public static string currentAccountName = "";
         public static bool isAccountSeller = true;
-        public static bool isAccountLogin = false;
     }
 }

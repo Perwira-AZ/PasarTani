@@ -17,7 +17,6 @@ using System.Data;
 using Npgsql;
 using PasarTani.MVVM.Model;
 using System.ComponentModel;
-using System.Diagnostics;
 
 namespace PasarTani
 {
@@ -31,15 +30,6 @@ namespace PasarTani
             InitializeComponent();
             this.Loaded+= MainWindow_Loaded;
         }
-
-
-
-
-
-
-
-
-
         private NpgsqlConnection conn;
         public static NpgsqlCommand cmd;
         private string sql = null;
@@ -47,43 +37,14 @@ namespace PasarTani
         public void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             conn = new NpgsqlConnection(SharedData.connstring);
-
-            /*Trace.WriteLine("Looping Main Window");*/
-
-
-
-
         }
 
-        public void ContentControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Trace.WriteLine("Data Context Changed Looping Main Window");
-        }
-
-        private void ContentControl_LayoutUpdated(object sender, EventArgs e)
-        {
-            Trace.WriteLine("Looping Main Window");
+        
 
 
-            if (SharedData.isAccountLogin == true)
-            {
-                SignUpViewTitleMenu.Visibility = Visibility.Collapsed;
-                LoginViewTitleMenu.Visibility = Visibility.Collapsed;
 
-                if (SharedData.isAccountSeller == true)
-                {
-                    SellerViewTitleMenu.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    BuyerViewTitleMenu.Visibility = Visibility.Visible;
-                }
-            }
-            else
-            {
-                SellerViewTitleMenu.Visibility = Visibility.Collapsed;
-                BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
-            }
-        }
+
+
+
     }
 }

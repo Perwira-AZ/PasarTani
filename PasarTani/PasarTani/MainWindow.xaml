@@ -37,60 +37,43 @@
 					   FontSize="24"/>
 
             <StackPanel Grid.Row="1">
-                <RadioButton x:Name="SignUpViewTitleMenu"
-                             Content="Sign Up"
+                <RadioButton Content="Sign Up"
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
-                             Command="{Binding SignUpViewCommand}"
-                             Visibility="Visible"
-                             />
+                             Command="{Binding SignUpViewCommand}"/>
 
-
-                <RadioButton x:Name="LoginViewTitleMenu"
-                             Content="Login"
+                <RadioButton Content="Login"
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
-                             Command="{Binding LoginViewCommand}"
-                             Visibility="Visible"
-                             />
+                             Command="{Binding LoginViewCommand}"/>
 
-                <RadioButton x:Name="HomeViewTitleMenu"
-                            Content="Beranda"
+                <RadioButton Content="Beranda"
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
-                             Command="{Binding HomeViewCommand}"
-                             Visibility="Visible"
-                             />
+                             Command="{Binding HomeViewCommand}"/>
 
-                <RadioButton x:Name="SellerViewTitleMenu"
-                             Content="Penjual"
+                <RadioButton Content="Penjual"
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding SellerViewCommand}"
-                             Visibility="Collapsed"
-                             />
-                
+                             Command="{Binding SellerViewCommand}"/>
 
-                <RadioButton x:Name="BuyerViewTitleMenu"
-                             Content="Pembeli"
+                <RadioButton Content="Pembeli"
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding BuyerViewCommand}"
-                             Visibility="Collapsed"
-                             />
+                             Command="{Binding BuyerViewCommand}"/>
             </StackPanel>
 
             <TextBox Width="250"
@@ -104,7 +87,7 @@
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="15"
-                            Content="{Binding CurrentView}" DataContextChanged="ContentControl_DataContextChanged" LayoutUpdated="ContentControl_LayoutUpdated"/>
+                            Content="{Binding CurrentView}"/>
         </Grid>
 
     </Border>

@@ -4,28 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace PasarTani.MVVM.ViewModel
 {
     internal class MainViewModel: Core.ObservableObject
     {
-
-
-        public ICommand SwitchVisibilityCommand { get; set; }
-/*        public RelayCommand SwitchVisibilityCommand { get; set; }
-        public RelayCommand HomeVisibilityCommand { get; set; }
-        public RelayCommand SellerVisibilityCommand { get; set; }
-        public RelayCommand SignUpVisibilityCommand { get; set; }
-        public RelayCommand LoginVisibilityCommand { get; set; }
-        public RelayCommand BuyerVisibilityCommand { get; set; }*/
-
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand SellerViewCommand { get; set; }
         public RelayCommand SignUpViewCommand { get; set; }
         public RelayCommand LoginViewCommand { get; set; }
         public RelayCommand BuyerViewCommand { get; set; }
-
 
         public HomeViewModel HomeVM { get; set; }
         public SellerViewModel SellerVM { get; set; }
@@ -48,11 +36,6 @@ namespace PasarTani.MVVM.ViewModel
 
         public MainViewModel()
         {
-
-            SwitchVisibilityCommand = new RelayCommand(SwitchVisibility, CanSwitchVisibility);
-
-
-
             HomeVM = new HomeViewModel();
             SellerVM = new SellerViewModel();
             SignUpVM= new SignUpViewModel();
@@ -87,16 +70,6 @@ namespace PasarTani.MVVM.ViewModel
             });
 
 
-        }
-
-        private bool CanSwitchVisibility(object arg)
-        {
-            return true;
-        }
-
-        private void SwitchVisibility(object obj)
-        {
-            
         }
     }
 }

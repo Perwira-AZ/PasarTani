@@ -62,7 +62,6 @@ namespace PasarTani.MVVM.View
                             SharedData.isAccountSeller = true;
                             SharedData.currentAccountLoginID = id;
                             SharedData.currentAccountName = name;
-                            SharedData.isAccountLogin = true;
                             txtEmail.Text = passPassword.Password = null;
                         }
                     }
@@ -97,8 +96,6 @@ namespace PasarTani.MVVM.View
                             MessageBox.Show($"Selamat Datang, {name}", "Login as Customer", MessageBoxButton.OK, MessageBoxImage.Information);
                             SharedData.isAccountSeller = false;
                             SharedData.currentAccountLoginID = id;
-                            SharedData.currentAccountName = name;
-                            SharedData.isAccountLogin = true;
                             txtEmail.Text = passPassword.Password = null;
                         }
                     }
