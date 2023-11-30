@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\App.xaml
-101418594831
+11-1413827154
 
-34-1678043237
+36117572847
 201537530745
-MainWindow.xaml;MVVM\View\BuyerView.xaml;MVVM\View\DetailedItem.xaml;MVVM\View\HomeView.xaml;MVVM\View\LoginView.xaml;MVVM\View\SellerView.xaml;MVVM\View\SignUpView.xaml;MVVM\View\SingUpPage.xaml;Theme\MenuButtonTheme.xaml;Theme\TextboxTheme.xaml;
+MainWindow.xaml;MVVM\View\BuyerView.xaml;MVVM\View\DetailedItem.xaml;MVVM\View\HomeView.xaml;MVVM\View\LoginView.xaml;MVVM\View\SellerView.xaml;MVVM\View\SellerViewAddItem.xaml;MVVM\View\SignUpView.xaml;MVVM\View\SingUpPage.xaml;Theme\MenuButtonTheme.xaml;Theme\TextboxTheme.xaml;
 
 True
 
