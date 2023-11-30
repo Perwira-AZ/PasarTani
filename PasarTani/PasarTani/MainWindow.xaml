@@ -37,8 +37,11 @@
 					   Foreground="White"
 					   FontSize="24"/>
 
-            <Button x:Name="btnSignOut" Height="20" Width="50" Margin="0 0 10 0" Click="btnSignOut_Click" Visibility="Collapsed">Sign Out</Button>
+            <Button x:Name="btnSignOut" Grid.Row="0" Grid.Column="1" Height="40" Width="70" Margin="0 0 10 0" Click="btnSignOut_Click" Visibility="Collapsed">Sign Out</Button>
 
+            <TextBlock x:Name="lbLoginGreeting" Text="Kelos" Grid.Row="0" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" Visibility="Hidden" Foreground="Wheat"></TextBlock>
+            
+            
             <StackPanel Grid.Row="1">
                 <RadioButton x:Name="SignUpViewTitleMenu"
                              Content="Sign Up"
