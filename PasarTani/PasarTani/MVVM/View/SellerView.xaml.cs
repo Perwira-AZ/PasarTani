@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using PasarTani.Model;
+﻿using PasarTani.Model;
 using PasarTani.MVVM.Model;
 using PasarTani.MVVM.Services;
 using PasarTani.MVVM.ViewModel;
@@ -19,9 +18,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Imagekit;
-using Imagekit.Sdk;
-using System.Security.Cryptography.X509Certificates;
 
 namespace PasarTani.MVVM.View
 {
@@ -63,27 +59,6 @@ namespace PasarTani.MVVM.View
             }
 
 
-        }
-
-        private void btnOpen_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Select a picture";
-            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-              "Portable Network Graphic (*.png)|*.png";
-            if (op.ShowDialog() == true)
-            {
-                imgPhoto.Source = new BitmapImage(new Uri(op.FileName));
-                
-                Trace.WriteLine(op.FileName);
-
-                ItemServices itemServices = new ItemServices();
-
-                string imageurl = itemServices.GenerateUrlImage(op.FileName, SharedData.currentAccountLoginID + SharedData.currentAccountName);
-
-                Trace.WriteLine(imageurl); // Store this url to postgreSQL
-            }
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
