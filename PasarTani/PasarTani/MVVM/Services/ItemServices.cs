@@ -1,9 +1,11 @@
-﻿using Npgsql;
+﻿using Imagekit.Sdk;
+using Npgsql;
 using PasarTani.Model;
 using PasarTani.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +14,10 @@ namespace PasarTani.MVVM.Services
 {
     internal class ItemServices
     {
+
         public ItemServices()
         {
-            
+
         }
         private NpgsqlConnection conn = new NpgsqlConnection(SharedData.connstring);
 
@@ -39,6 +42,7 @@ namespace PasarTani.MVVM.Services
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
                         Price = reader.GetDecimal(4),
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
 
                     items.Add(item);
@@ -77,7 +81,8 @@ namespace PasarTani.MVVM.Services
                         ItemName = reader.GetString(1),
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
-                        Price = reader.GetDecimal(4)
+                        Price = reader.GetDecimal(4),
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
 
                     items.Add(item);
@@ -115,9 +120,10 @@ namespace PasarTani.MVVM.Services
                         ItemName = reader.GetString(1),
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
-                        Price = reader.GetDecimal(4)
+                        Price = reader.GetDecimal(4),
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
-                    
+
                 }
             }
             catch (Exception ex)
@@ -129,16 +135,17 @@ namespace PasarTani.MVVM.Services
             return item;
         }
 
-        public void AddItem(int sellerId, string itemName, int stock, decimal price)
+        public void AddItem(string itemName, int sellerId,  int stock, decimal price, string imageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __add_item(@sellerId, @itemName, @stock, @price)";
+            var sql = "SELECT __add_item(@itemName, @sellerId, @stock, @price, @imageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("itemName", itemName);
+            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("stock", stock);
             cmd.Parameters.AddWithValue("price", price);
+            cmd.Parameters.AddWithValue("imageUrl", imageUrl);
 
             try
             {
@@ -152,17 +159,19 @@ namespace PasarTani.MVVM.Services
             conn.Close();
         }
 
-        public void UpdateItem(int sellerId, int itemId, string newItemName, int newStock, decimal newPrice)
+        public void UpdateItem(int sellerId, string newItemName, int itemId,  int newStock, decimal newPrice, string newImageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __update_item(@sellerId, @itemId, @newItemName, @newStock, @newPrice)";
+            var sql = "SELECT __update_item(@sellerId, @newItemName, @itemId, @newStock, @newPrice, @newImageUrl)";
+            Trace.WriteLine(sql);
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("sellerId", sellerId);
-            cmd.Parameters.AddWithValue("itemId", itemId);
             cmd.Parameters.AddWithValue("newItemName", newItemName);
+            cmd.Parameters.AddWithValue("itemId", itemId);
             cmd.Parameters.AddWithValue("newStock", newStock);
             cmd.Parameters.AddWithValue("newPrice", newPrice);
+            cmd.Parameters.AddWithValue("imageUrl", newImageUrl);
 
             try
             {
@@ -170,7 +179,7 @@ namespace PasarTani.MVVM.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Trace.WriteLine("Error: " + ex.Message);
             }
 
             conn.Close();
@@ -195,6 +204,30 @@ namespace PasarTani.MVVM.Services
             }
 
             conn.Close();
+        }
+
+        public string GenerateUrlImage(string filepath, string uniqueid)
+        {
+            ImagekitClient imagekit = new ImagekitClient(SharedData.imagePublicKey, SharedData.imagePrivateKey, SharedData.imageProductEndPoint);
+
+            byte[] bytes = File.ReadAllBytes(filepath);
+
+            string filename = uniqueid;
+
+            FileCreateRequest ob = new FileCreateRequest
+            {
+                file = bytes,
+                fileName = filename,
+                useUniqueFileName = true
+            };
+            Result resp2 = imagekit.Upload(ob);
+
+            string imageURL = resp2.url;
+
+            Trace.WriteLine(resp2.url);
+            Trace.WriteLine(imageURL);
+
+            return imageURL;
         }
     }
 }

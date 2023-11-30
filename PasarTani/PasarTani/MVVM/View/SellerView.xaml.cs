@@ -1,4 +1,5 @@
-﻿using PasarTani.Model;
+﻿using Microsoft.Win32;
+using PasarTani.Model;
 using PasarTani.MVVM.Model;
 using PasarTani.MVVM.Services;
 using PasarTani.MVVM.ViewModel;
@@ -32,7 +33,7 @@ namespace PasarTani.MVVM.View
             DataContext = new SellerViewModel();
         }
 
-
+        // Experimental section ----------------------------------------------------------------------
         //Seller Page
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -60,6 +61,46 @@ namespace PasarTani.MVVM.View
 
         }
 
+        private void btnOpen_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+
+            string imageurl = "";
+
+
+
+            if (op.ShowDialog() == true)
+            {
+                imgPhoto.Source = new BitmapImage(new Uri(op.FileName));
+
+                Trace.WriteLine(op.FileName);
+
+                ItemServices itemServices = new ItemServices();
+
+                imageurl = itemServices.GenerateUrlImage(op.FileName, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+
+                Trace.WriteLine(imageurl); // Store this url to postgreSQL
+
+
+                ItemServices itemService = new ItemServices();
+
+                //Init item
+                Item item = itemService.GetItemById(1);
+
+                Trace.WriteLine(item);
+
+                //Change Image
+                itemService.AddItem("New Image", 1, 10, 100, imageurl);
+
+            }
+
+        }
+
+        // Experimental section ----------------------------------------------------------------------
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
