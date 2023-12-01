@@ -38,7 +38,7 @@
 					   FontSize="24"/>
 
             <TextBlock x:Name="lbLoginGreeting" Text="Kelos" Grid.Row="0" Grid.Column="1" FontSize="30" HorizontalAlignment="Right" Visibility="Hidden" Foreground="white" Margin="0,10,115,0"></TextBlock>
-            <Button x:Name="btnSignOut" Grid.Row="0" Grid.Column="1" Height="30" Width="60" Margin="595,18,35,27" Click="btnSignOut_Click" Visibility="Collapsed" Background="#FFE23F3F" Foreground="white" >Sign Out</Button>
+            <Button x:Name="btnSignOut" Grid.Row="0" Grid.Column="1" Height="30" Width="60" Margin="595,18,35,27" Click="btnSignOut_Click" Visibility="Collapsed" Background="#FFE23F3F" Foreground="white" Command="{Binding HomeViewCommand}">Sign Out</Button>
             
             
             <StackPanel Grid.Row="1">
@@ -105,8 +105,6 @@
                      Margin="5"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextbox}"/>
-
-
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"

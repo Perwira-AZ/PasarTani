@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PasarTani.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for DetailedItem.xaml
+    /// Interaction logic for DetailItem.xaml
     /// </summary>
-    public partial class DetailedItem : UserControl
+    public partial class DetailItem : Window
     {
-        public DetailedItem()
+        public DetailItem()
         {
             InitializeComponent();
         }
