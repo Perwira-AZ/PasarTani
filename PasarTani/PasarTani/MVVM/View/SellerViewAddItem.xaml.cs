@@ -51,13 +51,15 @@ namespace PasarTani.MVVM.View
 
                 Trace.WriteLine(op.FileName);
 
-                ItemServices itemServices = new ItemServices();
+                SharedData.temporaryImageFilePath = op.FileName;
+
+/*                ItemServices itemServices = new ItemServices();
 
                 imageurl = itemServices.GenerateUrlImage(op.FileName, SharedData.currentAccountLoginID + SharedData.currentAccountName);
 
                 Trace.WriteLine(imageurl); // Store this url to postgreSQL
 
-                SharedData.temporaryUploadImage = imageurl;
+                SharedData.temporaryUploadImage = imageurl;*/
 
             }
 

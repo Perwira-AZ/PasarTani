@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
@@ -37,13 +38,27 @@ namespace PasarTani.MVVM.ViewModel
 
         private void AddItem(object obj)
         {
-            string imageUrl = SharedData.temporaryUploadImage;
+            ItemServices itemServices = new ItemServices();
 
-            if(SharedData.currentAccountLoginID != 0 && SharedData.isAccountSeller == true)
+            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+
+
+            if (SharedData.currentAccountLoginID != 0 && SharedData.isAccountSeller == true)
             {
                 Trace.WriteLine("Approval Mode");
                 int sellerID = SharedData.currentAccountLoginID;
-                itemServices.AddItem(Name, sellerID, int.Parse(Stock), decimal.Parse(Price), imageUrl);
+                bool status = itemServices.AddItem(Name, sellerID, int.Parse(Stock), decimal.Parse(Price), imageUrl);
+
+                if(status == true)
+                {
+                    MessageBox.Show("Berhasil Disimpan");
+
+                }
+                else
+                {
+                    MessageBox.Show("Terjadi Kesalahan");
+                }
+                
             }
 
         }

@@ -91,6 +91,7 @@ namespace PasarTani
 
             SharedData.currentAccountName = "";
             SharedData.temporaryUploadImage = "";
+            SharedData.temporaryImageFilePath = "";
             SharedData.currentAccountLoginID = 0;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using PasarTani.Core;
 using PasarTani.Model;
+using PasarTani.MVVM.Model;
 using PasarTani.MVVM.Services;
 using PasarTani.MVVM.View;
 using System;
@@ -31,7 +32,7 @@ namespace PasarTani.MVVM.ViewModel
 
         private void LoadItems()
         {
-            var items = _itemServices.getAllItems();
+            var items = _itemServices.GetItemsBySellerId(SharedData.currentAccountLoginID);
             foreach (var item in items)
             {
                 Items.Add(item);

@@ -135,7 +135,7 @@ namespace PasarTani.MVVM.Services
             return item;
         }
 
-        public void AddItem(string itemName, int sellerId,  int stock, decimal price, string imageUrl)
+        public bool AddItem(string itemName, int sellerId,  int stock, decimal price, string imageUrl)
         {
             conn.Open();
 
@@ -150,28 +150,30 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                return false;
             }
 
             conn.Close();
         }
 
-        public void UpdateItem(int sellerId, string newItemName, int itemId,  int newStock, decimal newPrice, string newImageUrl)
+        public void UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __update_item(@sellerId, @newItemName, @itemId, @newStock, @newPrice, @newImageUrl)";
+            var sql = "SELECT __update_item(@itemId, @newItemName, @sellerId, @newStock, @newPrice, @newImageUrl)";
             Trace.WriteLine(sql);
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("sellerId", sellerId);
-            cmd.Parameters.AddWithValue("newItemName", newItemName);
             cmd.Parameters.AddWithValue("itemId", itemId);
+            cmd.Parameters.AddWithValue("newItemName", newItemName);
+            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("newStock", newStock);
             cmd.Parameters.AddWithValue("newPrice", newPrice);
-            cmd.Parameters.AddWithValue("imageUrl", newImageUrl);
+            cmd.Parameters.AddWithValue("newImageUrl", newImageUrl);
 
             try
             {
