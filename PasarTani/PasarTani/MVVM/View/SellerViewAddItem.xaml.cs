@@ -77,5 +77,10 @@ namespace PasarTani.MVVM.View
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
     }
 }
