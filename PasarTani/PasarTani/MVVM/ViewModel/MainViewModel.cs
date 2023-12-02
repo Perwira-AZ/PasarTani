@@ -19,8 +19,8 @@ namespace PasarTani.MVVM.ViewModel
         public SellerViewModel SellerVM { get; set; }
         public SignUpViewModel SignUpVM { get; set; }
         public LoginViewModel LoginVM { get; set; }
-
         public BuyerViewModel BuyerVM { get; set; }
+
 
         private object _currentView;
 
@@ -68,7 +68,6 @@ namespace PasarTani.MVVM.ViewModel
             {
                 CurrentView = BuyerVM;
             });
-
 
         }
     }

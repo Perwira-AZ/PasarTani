@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasarTani.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace PasarTani.MVVM.View
         public BuyerView()
         {
             InitializeComponent();
+            this.DataContext = new BuyerViewModel();
         }
     }
 }

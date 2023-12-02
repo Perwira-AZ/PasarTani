@@ -13,6 +13,7 @@ namespace PasarTani.MVVM.Model
         public static string imageProductEndPoint = "https://ik.imagekit.io/r3ca4mbsw/";
         public static string imagePrivateKey = "private_Q5NMX9nhVm4lB4wWVUrrVkGQEtM=";
         public static string imagePublicKey = "public_fnYJfIF6AzSLRUYoPOp+7L68Pwc=";
+        public static string temporaryImageFilePath = "";
         public static string temporaryUploadImage = "";
         public static string currentAccountName = "";
         public static bool isAccountSeller = true;
