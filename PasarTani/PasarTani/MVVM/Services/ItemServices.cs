@@ -161,7 +161,7 @@ namespace PasarTani.MVVM.Services
             conn.Close();
         }
 
-        public void UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
+        public bool UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
         {
             conn.Open();
 
@@ -178,16 +178,18 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
                 Trace.WriteLine("Error: " + ex.Message);
+                return false;
             }
 
             conn.Close();
         }
 
-        public void DeleteItem(int sellerId, int itemId)
+        public bool DeleteItem(int sellerId, int itemId)
         {
             conn.Open();
 
@@ -199,10 +201,12 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                return false;
             }
 
             conn.Close();
@@ -212,24 +216,32 @@ namespace PasarTani.MVVM.Services
         {
             ImagekitClient imagekit = new ImagekitClient(SharedData.imagePublicKey, SharedData.imagePrivateKey, SharedData.imageProductEndPoint);
 
-            byte[] bytes = File.ReadAllBytes(filepath);
-
-            string filename = uniqueid;
-
-            FileCreateRequest ob = new FileCreateRequest
+            try
             {
-                file = bytes,
-                fileName = filename,
-                useUniqueFileName = true
-            };
-            Result resp2 = imagekit.Upload(ob);
+                byte[] bytes = File.ReadAllBytes(filepath);
 
-            string imageURL = resp2.url;
 
-            Trace.WriteLine(resp2.url);
-            Trace.WriteLine(imageURL);
+                string filename = uniqueid;
 
-            return imageURL;
+                FileCreateRequest ob = new FileCreateRequest
+                {
+                    file = bytes,
+                    fileName = filename,
+                    useUniqueFileName = true
+                };
+                Result resp2 = imagekit.Upload(ob);
+
+                string imageURL = resp2.url;
+
+                Trace.WriteLine(resp2.url);
+                Trace.WriteLine(imageURL);
+
+                return imageURL;
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 }

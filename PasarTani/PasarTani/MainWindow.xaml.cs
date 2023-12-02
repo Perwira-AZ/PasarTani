@@ -42,7 +42,7 @@ namespace PasarTani
 
         private void ContentControl_LayoutUpdated(object sender, EventArgs e)
         {
-            Trace.WriteLine("Looping Main Window");
+            //Trace.WriteLine("Looping Main Window");
 
 
             if (SharedData.isAccountLogin == true)

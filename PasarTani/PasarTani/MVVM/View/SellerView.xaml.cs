@@ -37,5 +37,23 @@ namespace PasarTani.MVVM.View
         {
 
         }
+
+        private void ViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement frameworkElement && frameworkElement.DataContext is Item selectedItem)
+            {
+                Trace.WriteLine($"Edit clicked for ItemID: {selectedItem.ItemID}, ItemName: {selectedItem.ItemName}, Price: {selectedItem.Price}");
+                // Logika untuk menghandle klik tombol Edit di sini
+                // Anda dapat mengakses data item terkait melalui selectedItem
+
+
+                DetailItem detailItemWindow = new DetailItem();
+                detailItemWindow.DataContext = selectedItem;
+                detailItemWindow.Show();
+            }
+
+
+        }
+
     }
 }
