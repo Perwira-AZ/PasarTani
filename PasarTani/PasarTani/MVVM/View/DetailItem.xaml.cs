@@ -1,4 +1,6 @@
-﻿using PasarTani.Model;
+﻿using Microsoft.Win32;
+using PasarTani.Model;
+using PasarTani.MVVM.Model;
 using PasarTani.MVVM.Services;
 using System;
 using System.Collections.Generic;
@@ -46,7 +48,9 @@ namespace PasarTani.MVVM.View
 
             ItemServices itemServices = new ItemServices();
 
-            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, cleanStock, cleanPrice, ((Item)DataContext).ImageURL.ToString());
+            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+
+            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, cleanStock, cleanPrice, imageUrl);
 
             if(status)
             {
@@ -76,6 +80,34 @@ namespace PasarTani.MVVM.View
             else
             {
                 MessageBox.Show("Gagal");
+            }
+        }
+
+        private void btnOpenEditImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+
+
+            if (op.ShowDialog() == true)
+            {
+                EditImgPhoto.Source = new BitmapImage(new Uri(op.FileName));
+
+                Trace.WriteLine(op.FileName);
+
+                SharedData.temporaryImageFilePath = op.FileName;
+
+                /*                ItemServices itemServices = new ItemServices();
+
+                                imageurl = itemServices.GenerateUrlImage(op.FileName, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+
+                                Trace.WriteLine(imageurl); // Store this url to postgreSQL
+
+                                SharedData.temporaryUploadImage = imageurl;*/
+
             }
         }
     }

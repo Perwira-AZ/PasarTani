@@ -20,6 +20,7 @@
                     </StackPanel.Resources>
 
                     <StackPanel Margin="0 50 0 0">
+
                         <StackPanel Orientation="Horizontal">
 
                             <Border Width="150"
@@ -29,6 +30,8 @@
                         Margin="10">
                                 <Grid>
                                     <StackPanel>
+                                        
+                                        
                                         <Border Width="120"
                                     Height="80"
                                     CornerRadius="6"
@@ -36,11 +39,33 @@
                                     Margin="0,10,0,0"
                                     HorizontalAlignment="Center">
 
-                                            <Image Source="{Binding ImageURL}"/>
+
+
+                                            <Image Name="EditImgPhoto" Source="{Binding ImageURL ,UpdateSourceTrigger=PropertyChanged}"/>
+                                            
+                                            
                                         </Border>
+                                        
+                                        
+                                        
+
+
+
+
                                     </StackPanel>
+
+                                    <Button Height="30" HorizontalAlignment="Center" Margin="0,0,0,20" Name="btnOpenEditImage" VerticalAlignment="Bottom" Width="80" Click="btnOpenEditImage_Click" Background="#FF2B4BFF" Foreground="White">Open Image
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="15"/>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+
                                 </Grid>
+
                             </Border>
+                            
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                 <TextBox 
         x:Name="detailItemName"
