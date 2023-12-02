@@ -40,7 +40,7 @@ namespace PasarTani.MVVM.ViewModel
         {
             ItemServices itemServices = new ItemServices();
 
-            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
 
 
             if (SharedData.currentAccountLoginID != 0 && SharedData.isAccountSeller == true)

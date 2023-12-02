@@ -30,7 +30,7 @@ namespace PasarTani.MVVM.View
 
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
+            /*Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
 
 
             Trace.WriteLine(detailItemPrice.Text);
@@ -59,7 +59,7 @@ namespace PasarTani.MVVM.View
             else
             {
                 MessageBox.Show("Gagal");
-            }
+            }*/
         }
     }
 }

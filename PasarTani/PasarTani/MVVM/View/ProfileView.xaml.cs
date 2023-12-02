@@ -39,7 +39,7 @@ namespace PasarTani.MVVM.View
                 AddressServices addressServices = new AddressServices();
                 SellerServices sellerServices = new SellerServices();
 
-                string imageurl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+                string imageurl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
 
                 bool statusAddress = addressServices.UpdateAddressById(SharedData.currentAddressID, txtAddress.Text, txtCity.Text, txtProvince.Text);
 
@@ -62,7 +62,7 @@ namespace PasarTani.MVVM.View
                 AddressServices addressServices = new AddressServices();
                 CustomerServices customerServices = new CustomerServices();
 
-                string imageurl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+                string imageurl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
 
                 bool statusAddress = addressServices.UpdateAddressById(SharedData.currentAddressID, txtAddress.Text, txtCity.Text, txtProvince.Text);
 

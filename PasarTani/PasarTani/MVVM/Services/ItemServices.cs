@@ -1,4 +1,5 @@
-﻿using Imagekit.Sdk;
+﻿using Imagekit.Models;
+using Imagekit.Sdk;
 using Npgsql;
 using PasarTani.Model;
 using PasarTani.MVVM.Model;
@@ -215,6 +216,14 @@ namespace PasarTani.MVVM.Services
         public string GenerateUrlImage(string filepath, string uniqueid)
         {
             ImagekitClient imagekit = new ImagekitClient(SharedData.imagePublicKey, SharedData.imagePrivateKey, SharedData.imageProductEndPoint);
+
+            Transformation trans = new Transformation()
+                .Width(400)
+                .Height(400)
+                .AspectRatio("4-4")
+                .Quality(40)
+                .Crop("force")
+                .CropMode("extract");
 
             try
             {

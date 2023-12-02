@@ -48,7 +48,7 @@ namespace PasarTani.MVVM.View
 
             ItemServices itemServices = new ItemServices();
 
-            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
 
             bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, cleanStock, cleanPrice, imageUrl);
 
