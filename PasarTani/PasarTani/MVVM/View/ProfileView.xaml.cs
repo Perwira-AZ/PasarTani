@@ -29,5 +29,10 @@ namespace PasarTani.MVVM.View
         {
 
         }
+
+        private void btnOpenEditImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

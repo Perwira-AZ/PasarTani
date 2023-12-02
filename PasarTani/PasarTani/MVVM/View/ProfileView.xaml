@@ -83,7 +83,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="80 0 0 0">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0 0 0">
 
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -112,7 +112,7 @@
             </StackPanel>
 
             <StackPanel Margin="0 20 0 0">
-                <Button Height="30" HorizontalAlignment="Center" Margin="0,0,0,0" Name="btnSaveProfile" VerticalAlignment="Bottom" Width="200" Click="btnOpenEditImage_Click" Background="Orange" Foreground="White">Save Setting
+                <Button Height="30" HorizontalAlignment="Center" Margin="0,0,0,0" Name="btnSaveProfile" VerticalAlignment="Bottom" Width="200" Click="btnSaveProfile_Click" Background="Orange" Foreground="White">Save Setting
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
