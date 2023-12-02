@@ -1,6 +1,8 @@
-﻿using PasarTani.MVVM.ViewModel;
+﻿using PasarTani.Model;
+using PasarTani.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,18 @@ namespace PasarTani.MVVM.View
         {
             InitializeComponent();
             this.DataContext = new BuyerViewModel();
+        }
+
+        private void Checkout_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement frameworkElement && frameworkElement.DataContext is Item selectedItem)
+            {
+                Trace.WriteLine($"Edit clicked for ItemID: {selectedItem.ItemID}, ItemName: {selectedItem.ItemName}, Price: {selectedItem.Price}");
+
+                BuyItemView buyItemWindow = new BuyItemView();
+                buyItemWindow.DataContext = selectedItem;
+                buyItemWindow.Show();
+            }
         }
     }
 }

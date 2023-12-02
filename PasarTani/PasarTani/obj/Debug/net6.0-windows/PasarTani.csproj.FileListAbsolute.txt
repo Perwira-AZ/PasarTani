@@ -186,3 +186,5 @@ C:\Users\pakhd\Desktop\junpro new lagi\PasarTani\PasarTani\PasarTani\obj\Debug\n
 C:\Users\pakhd\Desktop\junpro new lagi\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailItem.baml
 C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailItem.g.cs
 C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\DetailItem.baml
+C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\BuyItemView.g.cs
+C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\MVVM\View\BuyItemView.baml

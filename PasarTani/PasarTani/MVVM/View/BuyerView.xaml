@@ -27,7 +27,7 @@
                 Margin="0, 0, 0, 20"/>
 
             <WrapPanel>
-                <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl Name="ItemCollection" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Items}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal"/>
@@ -36,8 +36,10 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Width="120" Height="170" CornerRadius="10" Background="#353340" Margin="10">
+
                                 <Grid>
                                     <StackPanel>
+
                                         <Border Width="95" Height="65" CornerRadius="6" Background="#525252" Margin="0,10,0,0" HorizontalAlignment="Center">
                                             <!-- Your additional content here if needed -->
                                             <Image Source="{Binding ImageURL}"/>
@@ -45,11 +47,9 @@
                                         <TextBlock Text="{Binding ItemName}" Foreground="White" FontSize="16" FontWeight="Bold" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
                                         <TextBlock Text="{Binding Price, StringFormat='Rp{0:N2}'}" Foreground="White" FontSize="12" FontWeight="Normal" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
                                         <TextBlock Text="{Binding Stock, StringFormat='Stock: {0}'}" Foreground="White" FontSize="12" FontWeight="Normal" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
+
                                         <StackPanel>
-                                            <StackPanel.DataContext>
-                                                <vm:SellerViewModel />
-                                            </StackPanel.DataContext>
-                                            <Button Height="23" HorizontalAlignment="Center" Margin="0,3,0,0" Name="btnOpen" VerticalAlignment="Bottom" Width="75" Foreground="Black" Background="#FF00A24C" Command="{Binding ShowDetailItem}">View
+                                            <Button Content="Checkout" Margin="5,0,0,0" HorizontalAlignment="Center"  Width="75" Foreground="Black" Background="Orange" Click="Checkout_Click">
                                                 <Button.Resources>
                                                     <Style TargetType="Border">
                                                         <Setter Property="CornerRadius" Value="15"/>
@@ -57,8 +57,10 @@
                                                 </Button.Resources>
                                             </Button>
                                         </StackPanel>
+
                                     </StackPanel>
                                 </Grid>
+
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
