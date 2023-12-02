@@ -33,25 +33,16 @@
                                         
                                         
                                         <Border Width="120"
-                                    Height="80"
-                                    CornerRadius="6"
-                                    Background="#525252"
-                                    Margin="0,10,0,0"
-                                    HorizontalAlignment="Center">
-
-
+                                            Height="80"
+                                            CornerRadius="6"
+                                            Background="#525252"
+                                            Margin="0,10,0,0"
+                                            HorizontalAlignment="Center">
 
                                             <Image Name="EditImgPhoto" Source="{Binding ImageURL ,UpdateSourceTrigger=PropertyChanged}"/>
-                                            
-                                            
+
                                         </Border>
                                         
-                                        
-                                        
-
-
-
-
                                     </StackPanel>
 
                                     <Button Height="30" HorizontalAlignment="Center" Margin="0,0,0,20" Name="btnOpenEditImage" VerticalAlignment="Bottom" Width="80" Click="btnOpenEditImage_Click" Background="#FF2B4BFF" Foreground="White">Open Image

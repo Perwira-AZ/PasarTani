@@ -24,5 +24,10 @@ namespace PasarTani.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void btnSaveProfile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
