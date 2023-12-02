@@ -87,7 +87,7 @@ namespace PasarTani.MVVM.Services
             return address;
         }
 
-        public void AddAddress(string addressName, string cityName, string provinceName)
+        public int AddAddress(string addressName, string cityName, string provinceName)
         {
             conn.Open();
 
@@ -97,13 +97,17 @@ namespace PasarTani.MVVM.Services
             cmd.Parameters.AddWithValue("cityName", cityName);
             cmd.Parameters.AddWithValue("provinceName", provinceName);
 
+            int newAddressId = (int)cmd.ExecuteScalar();
+
             try
             {
                 cmd.ExecuteNonQuery();
+                return newAddressId;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                return newAddressId;
             }
 
             conn.Close();

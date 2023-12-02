@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using Npgsql;
 using PasarTani.MVVM.Model;
+using PasarTani.MVVM.Services;
 
 namespace PasarTani.MVVM.View
 {
@@ -40,25 +41,23 @@ namespace PasarTani.MVVM.View
         {
             try
             {
-                conn.Open();
-                sql = @"select * from seller_insert(:_name,:_phone_number,:_email,:_password)";
-                cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_name", txtName.Text);
-                cmd.Parameters.AddWithValue("_phone_number", txtPhone.Text);
-                cmd.Parameters.AddWithValue("_email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("_password", passPassword.Password);
-                if ((int)cmd.ExecuteScalar() == 1)
+                AddressServices addressServices = new AddressServices();
+                int addressID = addressServices.AddAddress("", "", "");
+                
+                
+                SellerServices sellerServices = new SellerServices();
+
+                bool status = sellerServices.AddSeller(txtName.Text, txtPhone.Text, txtEmail.Text, passPassword.Password , addressID, "");
+
+                if (status)
                 {
                     MessageBox.Show("Akun berhasil dibuat", "Sign Up as Seller", MessageBoxButton.OK, MessageBoxImage.Information);
-                    conn.Close();
                     txtName.Text = txtPhone.Text = txtEmail.Text = passPassword.Password = null;
                 }
-                conn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: "+ex.Message, "Sign Up as Seller", MessageBoxButton.OK, MessageBoxImage.Error);
-                conn.Close();
             }
         }
 
@@ -66,20 +65,18 @@ namespace PasarTani.MVVM.View
         {
             try
             {
-                conn.Open();
-                sql = @"select * from customer_insert(:_name,:_phone_number,:_email,:_password)";
-                cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_name", txtName.Text);
-                cmd.Parameters.AddWithValue("_phone_number", txtPhone.Text);
-                cmd.Parameters.AddWithValue("_email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("_password", passPassword.Password);
-                if ((int)cmd.ExecuteScalar() == 1)
+                AddressServices addressServices = new AddressServices();
+                int addressID = addressServices.AddAddress("", "", "");
+
+                CustomerServices customerServices = new CustomerServices();
+
+                bool status = customerServices.AddCustomer(txtName.Text, txtPhone.Text, txtEmail.Text, passPassword.Password, addressID, "");
+
+                if (status)
                 {
                     MessageBox.Show("Akun berhasil dibuat", "Sign Up as Customer", MessageBoxButton.OK, MessageBoxImage.Information);
-                    conn.Close();
                     txtName.Text = txtPhone.Text = txtEmail.Text = passPassword.Password = null;
                 }
-                conn.Close();
             }
             catch (Exception ex)
             {

@@ -14,7 +14,9 @@ namespace PasarTani.MVVM.Model
         protected string _phone_number;
         protected string _email;
         protected string _password;
-        protected Address _address;
+        protected int? _addressid;
+        protected string _image_url;
+        protected Address? _address;
         public int ID
         {
             get { return _id; }
@@ -45,10 +47,22 @@ namespace PasarTani.MVVM.Model
             set { _password = value; }
         }
 
+        public int? AddressId
+        {
+            get { return _addressid; }
+            set { _addressid = value; }
+        }
+
         public Address Address
         {
             get { return _address; }
             set { _address = value; }
+        }
+
+        public string ImageUrl
+        {
+            get { return _image_url; }
+            set { _image_url = value; }
         }
 
 

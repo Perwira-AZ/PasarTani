@@ -56,6 +56,8 @@ namespace PasarTani.MVVM.View
             {
                 MessageBox.Show("Berhasil Edit");
                 Close();
+                SharedData.temporaryImageFilePath = "";
+                SharedData.temporaryUploadImage = "";
             }
             else
             {

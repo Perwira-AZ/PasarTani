@@ -40,7 +40,10 @@ namespace PasarTani.MVVM.Services
                         Name = reader.GetString(1),
                         PhoneNumber = reader.GetString(2),
                         Email = reader.GetString(3),
-                        Password = reader.GetString(4)
+                        Password = reader.GetString(4),
+                        AddressId = reader.GetInt32(5),
+                        ImageUrl = reader.GetString(6)
+
                     };
 
                     sellers.Add(seller);
@@ -79,7 +82,9 @@ namespace PasarTani.MVVM.Services
                         Name = reader.GetString(1),
                         PhoneNumber = reader.GetString(2),
                         Email = reader.GetString(3),
-                        Password = reader.GetString(4)
+                        Password = reader.GetString(4),
+                        AddressId = reader.GetInt32(5),
+                        ImageUrl = reader.GetString(6)
                     };
                 }
             }
@@ -94,41 +99,47 @@ namespace PasarTani.MVVM.Services
         }
 
         //Order and Address Still Null, Set Manually from Address Services and Order Services
-        public void AddSeller(string name, string phoneNumber, string email, string password)
+        public bool AddSeller(string name, string phoneNumber, string email, string password, int addressid, string imageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __add_seller(@name, @phoneNumber, @email, @password)";
+            var sql = "SELECT __add_seller(@name, @phoneNumber, @email, @password, @addressid, @imageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("name", name);
             cmd.Parameters.AddWithValue("phoneNumber", phoneNumber);
             cmd.Parameters.AddWithValue("email", email);
             cmd.Parameters.AddWithValue("password", password);
+            cmd.Parameters.AddWithValue("addressid", addressid);
+            cmd.Parameters.AddWithValue("imageUrl", imageUrl);
 
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
 
-            conn.Close();
         }
 
         //Order and Address Still Null, Update Manually from Address Services and Order Services
-        public void UpdateSeller(int sellerId, string name, string phoneNumber, string email, string password)
+        public void UpdateSeller(int sellerId, string name, string phoneNumber, string email, string password, string imageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __update_seller(@sellerId, @name, @phoneNumber, @email, @password)";
+            var sql = "SELECT __update_seller(@sellerId, @name, @phoneNumber, @email, @password, @imageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("name", name);
             cmd.Parameters.AddWithValue("phoneNumber", phoneNumber);
             cmd.Parameters.AddWithValue("email", email);
             cmd.Parameters.AddWithValue("password", password);
+            cmd.Parameters.AddWithValue("imageUrl", imageUrl);
 
             try
             {
