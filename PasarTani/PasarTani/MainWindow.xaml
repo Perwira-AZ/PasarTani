@@ -96,6 +96,18 @@
                              Command="{Binding BuyerViewCommand}"
                              Visibility="Collapsed"
                              />
+
+
+                <RadioButton x:Name="ProfileViewTitleMenu"
+                             Content="Akun"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ProfileViewCommand}"
+                             Visibility="Collapsed"
+                             />
+
             </StackPanel>
 
             <TextBox Width="250"

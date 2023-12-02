@@ -49,8 +49,10 @@ namespace PasarTani
             {
                 SignUpViewTitleMenu.Visibility = Visibility.Collapsed;
                 LoginViewTitleMenu.Visibility = Visibility.Collapsed;
-                btnSignOut.Visibility = Visibility.Visible;
 
+
+                ProfileViewTitleMenu.Visibility = Visibility.Visible;
+                btnSignOut.Visibility = Visibility.Visible;
                 lbLoginGreeting.Visibility = Visibility.Visible;
                 
 
@@ -71,6 +73,7 @@ namespace PasarTani
                 SellerViewTitleMenu.Visibility = Visibility.Collapsed;
                 BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
                 btnSignOut.Visibility = Visibility.Collapsed;
+                ProfileViewTitleMenu.Visibility = Visibility.Collapsed;
 
                 lbLoginGreeting.Visibility = Visibility.Collapsed;
 
@@ -88,6 +91,7 @@ namespace PasarTani
             
             btnSignOut.Visibility = Visibility.Collapsed;
             lbLoginGreeting.Visibility = Visibility.Collapsed;
+            ProfileViewTitleMenu.Visibility= Visibility.Collapsed;
 
             SharedData.currentAccountName = "";
             SharedData.temporaryUploadImage = "";
