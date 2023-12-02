@@ -128,7 +128,7 @@ namespace PasarTani.MVVM.Services
         }
 
         //Order and Address Still Null, Update Manually from Address Services and Order Services
-        public void UpdateSeller(int sellerId, string name, string phoneNumber, string email, string password, string imageUrl)
+        public bool UpdateSeller(int sellerId, string name, string phoneNumber, string email, string password, string imageUrl)
         {
             conn.Open();
 
@@ -144,13 +144,17 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
 
-            conn.Close();
+            
         }
         public void DeleteSeller(int sellerId)
         {

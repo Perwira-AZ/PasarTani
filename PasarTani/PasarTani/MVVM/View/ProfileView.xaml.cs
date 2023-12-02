@@ -33,7 +33,51 @@ namespace PasarTani.MVVM.View
 
         private void btnSaveProfile_Click(object sender, RoutedEventArgs e)
         {
+            if(SharedData.isAccountSeller) 
+            { 
+                ItemServices itemServices = new ItemServices();
+                AddressServices addressServices = new AddressServices();
+                SellerServices sellerServices = new SellerServices();
 
+                string imageurl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+
+                bool statusAddress = addressServices.UpdateAddressById(SharedData.currentAddressID, txtAddress.Text, txtCity.Text, txtProvince.Text);
+
+                bool status = sellerServices.UpdateSeller(SharedData.currentAccountLoginID, txtName.Text, txtPhone.Text, txtEmail.Text, passPassword.Password, imageurl);
+
+                if(statusAddress && status) 
+                {
+                    MessageBox.Show("Data Berhasil Disimpan");
+                    SharedData.currentAccountName = txtName.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Data gagal Disimpan");
+                }
+
+            }
+            else
+            {
+                ItemServices itemServices = new ItemServices();
+                AddressServices addressServices = new AddressServices();
+                CustomerServices customerServices = new CustomerServices();
+
+                string imageurl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+
+                bool statusAddress = addressServices.UpdateAddressById(SharedData.currentAddressID, txtAddress.Text, txtCity.Text, txtProvince.Text);
+
+                bool status = customerServices.UpdateCustomer(SharedData.currentAccountLoginID, txtName.Text, txtPhone.Text, txtEmail.Text, passPassword.Password, imageurl);
+
+                if (statusAddress && status)
+                {
+                    MessageBox.Show("Data Berhasil Disimpan");
+                    SharedData.currentAccountName = txtName.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Data gagal Disimpan");
+                }
+            }
         }
 
         private void btnOpenEditImage_Click(object sender, RoutedEventArgs e)
@@ -47,19 +91,19 @@ namespace PasarTani.MVVM.View
 
             if (op.ShowDialog() == true)
             {
-                EditImgPhoto.Source = new BitmapImage(new Uri(op.FileName));
+                EditImgPhoto.ImageSource = new BitmapImage(new Uri(op.FileName));
 
                 Trace.WriteLine(op.FileName);
 
                 SharedData.temporaryImageFilePath = op.FileName;
+/*
+                ItemServices itemServices = new ItemServices();
 
-                /*                ItemServices itemServices = new ItemServices();
+                string imageurl = itemServices.GenerateUrlImage(op.FileName, SharedData.currentAccountLoginID + SharedData.currentAccountName);
 
-                                imageurl = itemServices.GenerateUrlImage(op.FileName, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+                Trace.WriteLine(imageurl); // Store this url to postgreSQL
 
-                                Trace.WriteLine(imageurl); // Store this url to postgreSQL
-
-                                SharedData.temporaryUploadImage = imageurl;*/
+                SharedData.temporaryUploadImage = imageurl;*/
 
             }
         }
@@ -68,22 +112,70 @@ namespace PasarTani.MVVM.View
         {
             if(SharedData.isAccountSeller)
             {
-/*                SellerServices sellerServices = new SellerServices();
+                SellerServices sellerServices = new SellerServices();
                 AddressServices addressServices = new AddressServices();
 
 
+
                 Seller sellerProfile = sellerServices.GetSellerById(SharedData.currentAccountLoginID);
+                SharedData.currentAddressID = sellerProfile.AddressId;
+                Address address = addressServices.GetAddressById(SharedData.currentAddressID);
 
                 txtName.Text = sellerProfile.Name;
                 txtEmail.Text = sellerProfile.Email;
                 txtPhone.Text = sellerProfile.PhoneNumber;
                 passPassword.Password = sellerProfile.Password;
-*/
-                
+                txtAddress.Text = address.AddressName;
+                txtCity.Text = address.City;
+                txtProvince.Text = address.Province;
+                string imageUrl = sellerProfile.ImageUrl;
 
 
+                try
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(imageUrl);
+                    bitmap.EndInit();
+                    EditImgPhoto.ImageSource = bitmap;
+                }
+                catch
+                {
+                    EditImgPhoto.ImageSource = null;
+                }
 
-                
+
+            }
+            else
+            {
+                CustomerServices customerServices = new CustomerServices();
+                AddressServices addressServices = new AddressServices();
+
+                Customer customerProfile = customerServices.GetCustomerById(SharedData.currentAccountLoginID);
+                SharedData.currentAddressID = customerProfile.AddressId;
+                Address address = addressServices.GetAddressById(customerProfile.ID);
+
+                txtName.Text = customerProfile.Name;
+                txtEmail.Text = customerProfile.Email;
+                txtPhone.Text = customerProfile.PhoneNumber;
+                passPassword.Password = customerProfile.Password;
+                txtAddress.Text = address.AddressName;
+                txtCity.Text = address.City;
+                txtProvince.Text = address.Province;
+                string imageUrl = customerProfile.ImageUrl;
+
+                try
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(imageUrl);
+                    bitmap.EndInit();
+                    EditImgPhoto.ImageSource = bitmap;
+                }
+                catch
+                {
+                    EditImgPhoto.ImageSource = null;
+                }
             }
         }
     }

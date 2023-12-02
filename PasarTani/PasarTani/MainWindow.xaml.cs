@@ -97,6 +97,7 @@ namespace PasarTani
             SharedData.temporaryUploadImage = "";
             SharedData.temporaryImageFilePath = "";
             SharedData.currentAccountLoginID = 0;
+            SharedData.currentAddressID = 0;
         }
     }
 }

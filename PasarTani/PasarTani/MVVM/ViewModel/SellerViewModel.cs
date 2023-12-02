@@ -32,8 +32,8 @@ namespace PasarTani.MVVM.ViewModel
 
         private void LoadItems()
         {
-            //var items = _itemServices.GetItemsBySellerId(SharedData.currentAccountLoginID);
-            var items = _itemServices.getAllItems();
+            var items = _itemServices.GetItemsBySellerId(SharedData.currentAccountLoginID);
+            //var items = _itemServices.getAllItems();
             foreach (var item in items)
             {
                 Items.Add(item);

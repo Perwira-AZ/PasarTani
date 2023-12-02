@@ -132,7 +132,7 @@ namespace PasarTani.MVVM.Services
             
         }
 
-        public void UpdateCustomer(int customerId, string name, string phoneNumber, string email, string password,string imageUrl)
+        public bool UpdateCustomer(int customerId, string name, string phoneNumber, string email, string password,string imageUrl)
         {
             conn.Open();
 
@@ -148,13 +148,16 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
 
-            conn.Close();
         }
 
         public void DeleteCustomer(int customerId)

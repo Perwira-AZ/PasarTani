@@ -8,5 +8,6 @@ namespace PasarTani.MVVM.ViewModel
 {
     class ProfileViewModel
     {
+
     }
 }

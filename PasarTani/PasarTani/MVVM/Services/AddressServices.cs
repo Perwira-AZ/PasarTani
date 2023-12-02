@@ -113,7 +113,7 @@ namespace PasarTani.MVVM.Services
             conn.Close();
         }
 
-        public void UpdateAddressById(int addressId, string newAddressName, string newCityName, string newProvinceName)
+        public bool UpdateAddressById(int addressId, string newAddressName, string newCityName, string newProvinceName)
         {
             conn.Open();
 
@@ -127,13 +127,16 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
 
-            conn.Close();
         }
 
         public void DeleteAddressById(int addressId)
