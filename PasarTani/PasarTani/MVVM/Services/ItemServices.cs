@@ -159,19 +159,19 @@ namespace PasarTani.MVVM.Services
             conn.Close();
         }
 
-        public void UpdateItem(int itemId, string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
+        public void UpdateItem(int sellerId, string newItemName, int itemId,  int newStock, decimal newPrice, string newImageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __update_item(@itemId, @newItemName, @sellerId, @newStock, @newPrice, @newImageUrl)";
+            var sql = "SELECT __update_item(@sellerId, @newItemName, @itemId, @newStock, @newPrice, @newImageUrl)";
             Trace.WriteLine(sql);
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("itemId", itemId);
-            cmd.Parameters.AddWithValue("newItemName", newItemName);
             cmd.Parameters.AddWithValue("sellerId", sellerId);
+            cmd.Parameters.AddWithValue("newItemName", newItemName);
+            cmd.Parameters.AddWithValue("itemId", itemId);
             cmd.Parameters.AddWithValue("newStock", newStock);
             cmd.Parameters.AddWithValue("newPrice", newPrice);
-            cmd.Parameters.AddWithValue("newImageUrl", newImageUrl);
+            cmd.Parameters.AddWithValue("imageUrl", newImageUrl);
 
             try
             {
