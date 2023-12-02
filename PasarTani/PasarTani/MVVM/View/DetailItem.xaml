@@ -35,6 +35,8 @@
                                     Background="#525252"
                                     Margin="0,10,0,0"
                                     HorizontalAlignment="Center">
+
+                                            <Image Source="{Binding ImageURL}"/>
                                         </Border>
                                     </StackPanel>
                                 </Grid>
