@@ -102,15 +102,17 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
                 return newAddressId;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
                 return newAddressId;
             }
 
-            conn.Close();
+            
         }
 
         public bool UpdateAddressById(int addressId, string newAddressName, string newCityName, string newProvinceName)
@@ -150,13 +152,15 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
             catch (Exception ex)
             {
+                conn.Close();
                 Console.WriteLine("Error: " + ex.Message);
             }
 
-            conn.Close();
+            
         }
 
     }
