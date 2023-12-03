@@ -37,7 +37,10 @@ namespace PasarTani.MVVM.View
         public string no { get; set; }
         public string name { get; set; }
         public int level { get; set; }
-        public Dictionary<string, string> DateValues { get; set; } = new Dictionary<string, string>();
+        public string today { get; set; }
+        public string yesterday { get; set; }
+        public string daymin2 { get; set; }
+        public string daymin3 { get; set; }
     }
 
 

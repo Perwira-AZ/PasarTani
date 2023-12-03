@@ -151,15 +151,16 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
                 return false;
             }
 
-            conn.Close();
         }
 
         public bool UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
@@ -179,15 +180,15 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
                 Trace.WriteLine("Error: " + ex.Message);
+                conn.Close();
                 return false;
             }
-
-            conn.Close();
         }
 
         public bool DeleteItem(int sellerId, int itemId)
@@ -202,15 +203,15 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
                 return false;
             }
-
-            conn.Close();
         }
 
         public string GenerateUrlImage(string filepath, string uniqueid)

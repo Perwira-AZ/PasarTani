@@ -26,7 +26,7 @@
                 HorizontalAlignment="Left"
                 Margin="0, 0, 0, 20"/>
 
-            <WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
                 <ItemsControl Name="ItemCollection" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Items}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>

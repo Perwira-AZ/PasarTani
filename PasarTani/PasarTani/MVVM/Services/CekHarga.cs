@@ -25,6 +25,11 @@ namespace PasarTani.MVVM.Services
             string startDateString = startDate.ToString("yyyy-MM-dd");
             string endDateString = currentDate.ToString("yyyy-MM-dd");
 
+            string todayString = currentDate.ToString("dd/MM/yyyy");
+            string yesterdayString = currentDate.AddDays(-1).ToString("dd/MM/yyyy");
+            string daymin2String = currentDate.AddDays(-2).ToString("dd/MM/yyyy");
+            string daymin3yString = currentDate.AddDays(-3).ToString("dd/MM/yyyy");
+
             // Update the URL with the calculated start and end dates
             string apiUrl = $"https://www.bi.go.id/hargapangan/WebSite/TabelHarga/GetGridDataDaerah?price_type_id=4&comcat_id=&province_id=&regency_id=&market_id=&tipe_laporan=1&start_date={startDateString}&end_date={endDateString}&_=1700182751171";
 
@@ -48,19 +53,14 @@ namespace PasarTani.MVVM.Services
                 {
                     no = item.no,
                     name = item.name,
-                    level = item.level
+                    level = item.level,
+                    today = item[todayString],
+                    yesterday = item[yesterdayString],
+                    daymin2 = item[daymin2String],
+                    daymin3 = item[daymin3yString],
                 };
 
                 // Iterate over each property in the item
-                foreach (var prop in item.Properties())
-                {
-                    // Check if the property is a date string
-                    if (DateTime.TryParseExact(prop.Name.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
-                    {
-                        // Add the date-value pair to the DateValues dictionary
-                        table.DateValues[prop.Name.ToString()] = prop.Value.ToString();
-                    }
-                }
 
                 // Add the Table object to the list
                 dataList.Add(table);
