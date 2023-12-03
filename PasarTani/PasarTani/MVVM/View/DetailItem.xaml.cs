@@ -41,12 +41,12 @@ namespace PasarTani.MVVM.View
 
             ItemServices itemServices = new ItemServices();
 
-            string imageUrl = ((Item)DataContext).ImageURL;
 
-            if (SharedData.temporaryImageFilePath != null)
+            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
+            
+            if (imageUrl == null)
             {
-                Trace.WriteLine(SharedData.temporaryImageFilePath);
-                imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
+                imageUrl = ((Item)DataContext).ImageURL;
             }
 
             bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, int.Parse(detailItemStock.Text), int.Parse(detailItemPrice.Text), imageUrl);

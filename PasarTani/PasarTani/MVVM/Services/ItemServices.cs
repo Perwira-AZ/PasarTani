@@ -250,7 +250,7 @@ namespace PasarTani.MVVM.Services
             }
             catch
             {
-                return "";
+                return null;
             }
         }
     }

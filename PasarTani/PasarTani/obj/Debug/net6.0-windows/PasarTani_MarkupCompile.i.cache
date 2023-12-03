@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pakhd\Desktop\NT Ges\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\
+C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\Junpro New Clone\PasarTani\PasarTani\PasarTani\obj\Debug\net6.0-windows\
 PasarTani
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\pakhd\Desktop\NT Ges\PasarTani\PasarTani\PasarTani\App.xaml
+C:\Users\nuraz\OneDrive\Documents\Kuliah\Kuliah Reguler\Semester 5\Junpro New Clone\PasarTani\PasarTani\PasarTani\App.xaml
 13-658908317
 
 40-1671256702
-201-789730367
+201537530745
 MainWindow.xaml;MVVM\View\BuyerView.xaml;MVVM\View\BuyItemView.xaml;MVVM\View\DetailItem.xaml;MVVM\View\HomeView.xaml;MVVM\View\LoginView.xaml;MVVM\View\ProfileView.xaml;MVVM\View\SellerView.xaml;MVVM\View\SellerViewAddItem.xaml;MVVM\View\SignUpView.xaml;MVVM\View\SingUpPage.xaml;Theme\MenuButtonTheme.xaml;Theme\TextboxTheme.xaml;
 
-False
+True
 
