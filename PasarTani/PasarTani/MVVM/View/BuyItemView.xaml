@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasarTani.MVVM.View"
         mc:Ignorable="d"
-        Title="BuyItemView" Height="300" Width="480">
+        Title="BuyItemView" Height="400" Width="480">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Width="480">
             <Border.Background>
@@ -48,29 +48,29 @@
                                     Padding="5"
                                     FontSize="24"
                                     FontWeight="Bold"
-                                    Margin="0,5,0,0"
+                                    Margin="0,0,0,0"
                                     HorizontalAlignment="Left"
                                 />
                                 <TextBlock
                                     x:Name="buyItemPrice"
-                                    Text="{Binding Price}"
+                                    Text="{Binding Price, StringFormat='Harga: {0}'}"
                                     Background="Transparent"
                                     Foreground="White"
                                     Padding="5"
                                     FontSize="16"
                                     FontWeight="Bold"
-                                    Margin="0,5,0,0"
+                                    Margin="0,0,0,0"
                                     HorizontalAlignment="Left"
                                 />
                                 <TextBlock
                                     x:Name="buyItemStock"
-                                    Text="{Binding Stock}"
+                                    Text="{Binding Stock, StringFormat='Stock: {0}'}"
                                     Background="Transparent"
                                     Foreground="White"
                                     Padding="5"
                                     FontSize="16"
                                     FontWeight="Normal"
-                                    Margin="0,5,0,0"
+                                    Margin="0,0,0,0"
                                     HorizontalAlignment="Left"
                                 />
                             </StackPanel>
@@ -90,7 +90,7 @@
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label Foreground="White" FontWeight="Bold"> Quantity: </Label>
+                        <Label Foreground="White" FontWeight="Bold" VerticalAlignment="Center"> Quantity: </Label>
                         <TextBox
                             x:Name="buyQuantity"
                             Text=""
@@ -99,19 +99,19 @@
                             FontWeight="Normal"
                             Margin="0,5,0,0"
                             HorizontalAlignment="Center" 
-                            Width="100"
+                            Width="50"
                             PreviewTextInput="NumberValidationTextBox"
                             TextChanged="UpdateQty"
                             >
                             <TextBox.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
+                                    <Setter Property="CornerRadius" Value="7"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 12 0 30">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 0 0 30">
                         <TextBlock
                             x:Name="TotalPrice"
                             Text="Total: 0"
