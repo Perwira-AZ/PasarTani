@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasarTani.MVVM.View"
         mc:Ignorable="d"
-        Title="DetailItem" Height="450" Width="800">
+        Title="DetailItem" Height="300" Width="480">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Width="800">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Width="480">
             <Border.Background>
                 <SolidColorBrush Color="#FF2C2850"></SolidColorBrush>
             </Border.Background>
@@ -19,7 +19,7 @@
                         </Style>
                     </StackPanel.Resources>
 
-                    <StackPanel Margin="0 50 0 0">
+                    <StackPanel Margin="15 30 15 0">
 
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical">
@@ -50,67 +50,47 @@
                                 </Button>
                             </StackPanel>
                             
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBox 
-                                    x:Name="detailItemName"
-                                    Text="{Binding ItemName, UpdateSourceTrigger=PropertyChanged}"
-                                    Foreground="White"
-                                    FontSize="24"
-                                    FontWeight="Bold"
-                                    Margin="0,5,0,0"
-                                    HorizontalAlignment="Left"
-                                    Background="Transparent">
-                                    <TextBox.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="15"/>
-                                        </Style>
-                                    </TextBox.Resources>
-                                </TextBox>
-
-                                <TextBox
-                                    x:Name="detailItemPrice"
-                                    Text="{Binding Price, StringFormat=\{0:C\}, UpdateSourceTrigger=PropertyChanged}"
-                                    Foreground="White"
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Margin="0,5,0,0"
-                                    HorizontalAlignment="Left"
-                                    Background="Transparent">
-                                    <TextBox.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="15"/>
-                                        </Style>
-                                    </TextBox.Resources>
-                                </TextBox>
-
-                                <TextBox
-                                    x:Name="detailItemStock"
-                                    Text="{Binding Stock, StringFormat=Stock: \{0\}, UpdateSourceTrigger=PropertyChanged}"
-                                    Foreground="White"
-                                    FontSize="16"
-                                    FontWeight="Normal"
-                                    Margin="0,5,0,0"
-                                    HorizontalAlignment="Left" Background="Transparent">
-                                    <TextBox.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="15"/>
-                                        </Style>
-                                    </TextBox.Resources>
-                                </TextBox>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Item: " Foreground="White" FontSize="20" VerticalAlignment="Center"/>
+                                    <TextBox 
+                                        x:Name="detailItemName"
+                                        Text="{Binding ItemName, UpdateSourceTrigger=PropertyChanged}"
+                                        Foreground="White"
+                                        FontSize="24"
+                                        FontWeight="Bold"
+                                        Margin="0,5,0,0"
+                                        HorizontalAlignment="Left"
+                                        Background="Transparent"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Harga: " Foreground="White" FontSize="16" VerticalAlignment="Center"/>
+                                    <TextBox
+                                        x:Name="detailItemPrice"
+                                        Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Margin="0,5,0,0"
+                                        HorizontalAlignment="Left"
+                                        Background="Transparent"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Stock: " Foreground="White" FontSize="16" VerticalAlignment="Center"/>
+                                    <TextBox
+                                        x:Name="detailItemStock"
+                                        Text="{Binding Stock, UpdateSourceTrigger=PropertyChanged}"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        FontWeight="Normal"
+                                        Margin="0,5,0,0"
+                                        HorizontalAlignment="Left" Background="Transparent"/>
+                                </StackPanel>
                             </StackPanel>
 
                         </StackPanel>
-                        <TextBlock
-                           x:Name="detailItemDesc"
-                           TextWrapping="Wrap"
-                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                           Foreground="White"
-                           FontSize="16"
-                           Width="769"
-                           HorizontalAlignment="Left"
-                           Margin="10,20,0,30"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30">
                         <Button x:Name="btnEdit"  Background="#FFFFA900" Foreground="White" BorderThickness="0" Width="90" Margin="0,0,10,0" FontSize="16" Click="btnEdit_Click">
                             Edit
                             <Button.Resources>

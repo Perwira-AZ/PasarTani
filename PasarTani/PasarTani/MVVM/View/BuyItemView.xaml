@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasarTani.MVVM.View"
         mc:Ignorable="d"
-        Title="BuyItemView" Height="450" Width="800">
+        Title="BuyItemView" Height="300" Width="480">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Width="800">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Width="480">
             <Border.Background>
                 <SolidColorBrush Color="#FF2C2850"></SolidColorBrush>
             </Border.Background>
@@ -19,7 +19,7 @@
                         </Style>
                     </StackPanel.Resources>
 
-                    <StackPanel Margin="0 50 0 0">
+                    <StackPanel Margin="15 30 15 0">
                         <StackPanel Orientation="Horizontal">
                             <Border Width="150"
                                 Height="100"
@@ -40,39 +40,33 @@
                                 </Grid>
                             </Border>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBox 
-                                    x:Name="detailItemName"
+                                <TextBlock 
+                                    x:Name="buyItemName"
                                     Text="{Binding ItemName}"
-                                    IsReadOnly="True"
                                     Background="Transparent"
                                     Foreground="White"
-                                    BorderThickness="0"
                                     Padding="5"
                                     FontSize="24"
                                     FontWeight="Bold"
                                     Margin="0,5,0,0"
                                     HorizontalAlignment="Left"
                                 />
-                                <TextBox
-                                    x:Name="detailItemPrice"
-                                    Text="{Binding Price, StringFormat=\{0:C\}}"
-                                    IsReadOnly="True"
+                                <TextBlock
+                                    x:Name="buyItemPrice"
+                                    Text="{Binding Price}"
                                     Background="Transparent"
                                     Foreground="White"
-                                    BorderThickness="0"
                                     Padding="5"
                                     FontSize="16"
                                     FontWeight="Bold"
                                     Margin="0,5,0,0"
                                     HorizontalAlignment="Left"
                                 />
-                                <TextBox
-                                    x:Name="detailItemStock"
-                                    Text="{Binding Stock, StringFormat=Stock: \{0\}}"
-                                    IsReadOnly="True"
+                                <TextBlock
+                                    x:Name="buyItemStock"
+                                    Text="{Binding Stock}"
                                     Background="Transparent"
                                     Foreground="White"
-                                    BorderThickness="0"
                                     Padding="5"
                                     FontSize="16"
                                     FontWeight="Normal"
@@ -81,15 +75,6 @@
                                 />
                             </StackPanel>
                         </StackPanel>
-                        <TextBlock
-                           x:Name="detailItemDesc"
-                           TextWrapping="Wrap"
-                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                           Foreground="White"
-                           FontSize="16"
-                           Width="769"
-                           HorizontalAlignment="Left"
-                           Margin="10,20,0,30"/>    
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Label Foreground="White" FontWeight="Bold"> Quantity: </Label>
@@ -103,6 +88,7 @@
                             HorizontalAlignment="Center" 
                             Width="100"
                             PreviewTextInput="NumberValidationTextBox"
+                            TextChanged="UpdateQty"
                             >
                             <TextBox.Resources>
                                 <Style TargetType="Border">
@@ -112,21 +98,19 @@
                         </TextBox>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 12 0 0">
-                        <TextBox
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 12 0 30">
+                        <TextBlock
                             x:Name="TotalPrice"
-                            Text=""
-                            IsReadOnly="True"
+                            Text="Total: 0"
                             Background="Transparent"
                             Foreground="White"
-                            BorderThickness="0"
                             Padding="5"
                             FontSize="16"
                             FontWeight="Bold"
-                            Margin="0,0,100,0"
+                            HorizontalAlignment="Center"
                         />
 
-                        <Button x:Name="btnBuy"  Background="#FFFFA900" Foreground="White" BorderThickness="0" Width="90" Margin="0,0,10,0" FontSize="16" Click="btnBuy_Click">
+                        <Button x:Name="btnBuy"  Background="#FFFFA900" Foreground="White" BorderThickness="0" Width="90" FontSize="16" Click="btnBuy_Click">
                             Buy
                             <Button.Resources>
                                 <Style TargetType="Border">

@@ -31,26 +31,20 @@ namespace PasarTani.MVVM.View
 
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
-            /*Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
+            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {buyItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {buyItemPrice.Text}, Stock: {buyItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
 
 
-            Trace.WriteLine(detailItemPrice.Text);
-            Trace.WriteLine(detailItemStock.Text);
+            Trace.WriteLine(buyItemPrice.Text);
+            Trace.WriteLine(buyItemStock.Text);
             //Stock: 800
-            //
-            int cleanPrice = int.Parse(detailItemPrice.Text.Replace("$", "").Replace(",", "").Replace(".00", ""));
-            string[] parts = detailItemStock.Text.Split(':');
 
-            int cleanStock = int.Parse(parts[1].Trim());
-
-            Trace.WriteLine(cleanPrice);
-            Trace.WriteLine(cleanStock);
+            int quantity = int.Parse(buyQuantity.Text);
 
             ItemServices itemServices = new ItemServices();
 
             string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
 
-            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, cleanStock, cleanPrice, imageUrl);
+            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, buyItemName.Text, ((Item)DataContext).SellerID, int.Parse(buyItemPrice.Text), int.Parse(buyItemStock.Text)-quantity, imageUrl);
 
             if (status)
             {
@@ -60,12 +54,42 @@ namespace PasarTani.MVVM.View
             else
             {
                 MessageBox.Show("Gagal");
-            }*/
+            }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void UpdateQty(object sender, TextChangedEventArgs e)
+        {
+            if(buyQuantity.Text != "")
+            {
+                if (int.Parse(buyQuantity.Text) <= int.Parse(buyItemStock.Text))
+                {
+                    UpdateTotalPrice();
+                }else{
+                    buyQuantity.Text = buyItemStock.Text;
+                    UpdateTotalPrice();
+                }
+            }
+            else
+            {
+                UpdateTotalPrice();
+            }
+        }
+
+        private void UpdateTotalPrice()
+        {
+            if(buyQuantity.Text != "")
+            {
+                TotalPrice.Text = $"Total: {int.Parse(buyItemPrice.Text) * int.Parse(buyQuantity.Text)}";
+            }
+            else
+            {
+                TotalPrice.Text = "Total: 0";
+            }
         }
     }
 }

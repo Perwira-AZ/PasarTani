@@ -38,19 +38,18 @@ namespace PasarTani.MVVM.View
             Trace.WriteLine(detailItemStock.Text);
             //Stock: 800
             //
-            int cleanPrice = int.Parse(detailItemPrice.Text.Replace("$", "").Replace(",", "").Replace(".00", ""));
-            string[] parts = detailItemStock.Text.Split(':');
-
-            int cleanStock = int.Parse(parts[1].Trim());
-
-            Trace.WriteLine(cleanPrice);
-            Trace.WriteLine(cleanStock);
 
             ItemServices itemServices = new ItemServices();
 
-            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
+            string imageUrl = ((Item)DataContext).ImageURL;
 
-            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, cleanStock, cleanPrice, imageUrl);
+            if (SharedData.temporaryImageFilePath != null)
+            {
+                Trace.WriteLine(SharedData.temporaryImageFilePath);
+                imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID.ToString());
+            }
+
+            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, int.Parse(detailItemStock.Text), int.Parse(detailItemPrice.Text), imageUrl);
 
             if(status)
             {
