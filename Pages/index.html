@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.17/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <title>Pasar Tani</title>
+</head>
+
+<body>
+    <div class="flex flex-col md:hidden items-center h-screen justify-center gap-8 px-10">
+      <h1 class="text-center text-2xl">Maaf. Harap gunakan layar lebih lebar untuk mengakses laman ini.</h1>
+    </div>
+  
+    <div class="flex flex-row h-full w-full hidden md:flex">
+        <div id="sidebar" class="dark-bg-slate-50 flex flex-col w-1/5 h-full fixed text-lg px-8 py-12">
+            <a href="#" onclick="loadContent('home.html')" class="text-white my-4 hover:bg-blue-400 hover:text-white transition-colors duration-300 rounded-md px-4 py-2">Home</a>
+            <a href="#" onclick="loadContent('features.html')" class="text-white my-4 hover:bg-blue-400 hover:text-white transition-colors duration-300 rounded-md px-4 py-2">Features</a>
+            <a href="#" onclick="loadContent('documentation.html')" class="text-white my-4 hover:bg-blue-400 hover:text-white transition-colors duration-300 rounded-md px-4 py-2">Documentation</a>
+            <a href="#" onclick="loadContent('installation.html')" class="text-white my-4 hover:bg-blue-400 hover:text-white transition-colors duration-300 rounded-md px-4 py-2">Installation</a>
+        </div>          
+  
+        <div id="content" class="grow flex justify-end">
+            <iframe id="content-iframe" src="home.html" class="w-4/5 min-h-screen"></iframe>
+        </div>
+    </div>
+    <script>
+        function loadContent(contentFile) {
+          document.getElementById('content-iframe').src = contentFile;
+        }
+    </script>
+</body>
+</html>
