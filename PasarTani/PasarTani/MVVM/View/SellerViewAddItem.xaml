@@ -47,7 +47,7 @@
                         <!-- Price -->
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,30,0">
                             <Label Content="Price" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-                            <TextBox Text="{Binding Price}" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="220" Height="32" PreviewTextInput="DecimalValidationTextBox">
+                            <TextBox Text="{Binding Price}" TextWrapping="Wrap"  Background="White" VerticalContentAlignment="Center" Width="220" Height="32" PreviewTextInput="NumberValidationTextBox">
                                 <TextBox.Resources>
                                     <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="15"/>

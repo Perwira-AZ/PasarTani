@@ -71,12 +71,6 @@ namespace PasarTani.MVVM.View
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void DecimalValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9.]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
             Close();

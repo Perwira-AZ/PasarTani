@@ -20,123 +20,112 @@
                     </StackPanel.Resources>
 
                     <StackPanel Margin="0 50 0 0">
-
                         <StackPanel Orientation="Horizontal">
-
                             <Border Width="150"
-                Height="100"
-                CornerRadius="10"
-                Background="#353340"
-                Margin="10">
+                                Height="100"
+                                CornerRadius="10"
+                                Background="#353340"
+                                Margin="10">
                                 <Grid>
                                     <StackPanel>
-
-
                                         <Border Width="120"
-                            Height="80"
-                            CornerRadius="6"
-                            Background="#525252"
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Center">
-
-
-
+                                            Height="80"
+                                            CornerRadius="6"
+                                            Background="#525252"
+                                            Margin="0,10,0,0"
+                                            HorizontalAlignment="Center">
                                             <Image Name="DisplayImgPhoto" Source="{Binding ImageURL}"/>
-
-
                                         </Border>
-
-
                                     </StackPanel>
-
                                 </Grid>
-
                             </Border>
-
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                 <TextBox 
-    x:Name="detailItemName"
-    Text="{Binding ItemName}"
-    IsReadOnly="True"
-    Background="Transparent"
-    Foreground="White"
-    BorderThickness="0"
-    Padding="5"
-    FontSize="24"
-    FontWeight="Bold"
-    Margin="0,5,0,0"
-    HorizontalAlignment="Left"
-/>
-
+                                    x:Name="detailItemName"
+                                    Text="{Binding ItemName}"
+                                    IsReadOnly="True"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Padding="5"
+                                    FontSize="24"
+                                    FontWeight="Bold"
+                                    Margin="0,5,0,0"
+                                    HorizontalAlignment="Left"
+                                />
                                 <TextBox
-    x:Name="detailItemPrice"
-    Text="{Binding Price, StringFormat=\{0:C\}}"
-    IsReadOnly="True"
-    Background="Transparent"
-    Foreground="White"
-    BorderThickness="0"
-    Padding="5"
-    FontSize="16"
-    FontWeight="Bold"
-    Margin="0,5,0,0"
-    HorizontalAlignment="Left"
-/>
-
+                                    x:Name="detailItemPrice"
+                                    Text="{Binding Price, StringFormat=\{0:C\}}"
+                                    IsReadOnly="True"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Padding="5"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Margin="0,5,0,0"
+                                    HorizontalAlignment="Left"
+                                />
                                 <TextBox
-    x:Name="detailItemStock"
-    Text="{Binding Stock, StringFormat=Stock: \{0\}}"
-    IsReadOnly="True"
-    Background="Transparent"
-    Foreground="White"
-    BorderThickness="0"
-    Padding="5"
-    FontSize="16"
-    FontWeight="Normal"
-    Margin="0,5,0,0"
-    HorizontalAlignment="Left"
-/>
-
+                                    x:Name="detailItemStock"
+                                    Text="{Binding Stock, StringFormat=Stock: \{0\}}"
+                                    IsReadOnly="True"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Padding="5"
+                                    FontSize="16"
+                                    FontWeight="Normal"
+                                    Margin="0,5,0,0"
+                                    HorizontalAlignment="Left"
+                                />
                             </StackPanel>
-
                         </StackPanel>
                         <TextBlock
-               x:Name="detailItemDesc"
-               TextWrapping="Wrap"
-               Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-               Foreground="White"
-               FontSize="16"
-               Width="769"
-               HorizontalAlignment="Left"
-               Margin="10,20,0,30"/>
+                           x:Name="detailItemDesc"
+                           TextWrapping="Wrap"
+                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                           Foreground="White"
+                           FontSize="16"
+                           Width="769"
+                           HorizontalAlignment="Left"
+                           Margin="10,20,0,30"/>    
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <Label Foreground="White"> Quantity </Label>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Foreground="White" FontWeight="Bold"> Quantity: </Label>
                         <TextBox
                             x:Name="buyQuantity"
                             Text=""
-                            Foreground="White"
+                            Foreground="Black"
                             FontSize="16"
                             FontWeight="Normal"
                             Margin="0,5,0,0"
                             HorizontalAlignment="Center" 
-                            Width="200"
-                            />
+                            Width="100"
+                            PreviewTextInput="NumberValidationTextBox"
+                            >
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
                     </StackPanel>
                     
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 12 0 0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 12 0 0">
                         <TextBox
-    x:Name="TotalPrice"
-    Text=""
-    IsReadOnly="True"
-    Background="Transparent"
-    Foreground="White"
-    BorderThickness="0"
-    Padding="5"
-    FontSize="16"
-    FontWeight="Bold"
-    Margin="0,0,100,0"
-/>
-                        
+                            x:Name="TotalPrice"
+                            Text=""
+                            IsReadOnly="True"
+                            Background="Transparent"
+                            Foreground="White"
+                            BorderThickness="0"
+                            Padding="5"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Margin="0,0,100,0"
+                        />
+
                         <Button x:Name="btnBuy"  Background="#FFFFA900" Foreground="White" BorderThickness="0" Width="90" Margin="0,0,10,0" FontSize="16" Click="btnBuy_Click">
                             Buy
                             <Button.Resources>
