@@ -42,9 +42,10 @@ namespace PasarTani.MVVM.View
 
             ItemServices itemServices = new ItemServices();
 
-            string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
+            string imageUrl = ((Item)DataContext).ImageURL;
+            
 
-            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, buyItemName.Text, ((Item)DataContext).SellerID,  int.Parse(buyItemStock.Text)-quantity, int.Parse(buyItemPrice.Text), imageUrl, buyItemDesc.Text);
+            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, buyItemName.Text, ((Item)DataContext).SellerID,  int.Parse(buyItemStock.Text.Split(' ')[1])-quantity, int.Parse(buyItemPrice.Text.Split(' ')[1]), imageUrl, buyItemDesc.Text);
 
             if (status)
             {
@@ -64,9 +65,9 @@ namespace PasarTani.MVVM.View
 
         private void UpdateQty(object sender, TextChangedEventArgs e)
         {
-            if(buyQuantity.Text != "")
+            if (buyQuantity.Text != "")
             {
-                if (int.Parse(buyQuantity.Text) <= int.Parse(buyItemStock.Text))
+                if (int.Parse(buyQuantity.Text) <= int.Parse(buyItemStock.Text.Split(' ')[1]))
                 {
                     UpdateTotalPrice();
                 }else{
@@ -84,7 +85,7 @@ namespace PasarTani.MVVM.View
         {
             if(buyQuantity.Text != "")
             {
-                TotalPrice.Text = $"Total: {int.Parse(buyItemPrice.Text) * int.Parse(buyQuantity.Text)}";
+                TotalPrice.Text = $"Total: {int.Parse(buyItemPrice.Text.Split(' ')[1]) * int.Parse(buyQuantity.Text)}";
             }
             else
             {
