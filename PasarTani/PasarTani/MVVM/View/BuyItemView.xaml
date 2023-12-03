@@ -19,7 +19,7 @@
                         </Style>
                     </StackPanel.Resources>
 
-                    <StackPanel Margin="15 30 15 0">
+                    <StackPanel Margin="15 30 15 0" Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <Border Width="150"
                                 Height="100"
@@ -74,9 +74,22 @@
                                     HorizontalAlignment="Left"
                                 />
                             </StackPanel>
+                            
                         </StackPanel>
+                        <TextBlock
+                                    x:Name="buyItemDesc"
+                                    Text="{Binding Description}"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    Padding="5"
+                                    FontSize="16"
+                                    FontWeight="Normal"
+                                    Margin="0,5,0,0"
+                                    HorizontalAlignment="Left"
+                                />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Foreground="White" FontWeight="Bold"> Quantity: </Label>
                         <TextBox
                             x:Name="buyQuantity"

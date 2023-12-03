@@ -24,6 +24,7 @@ namespace PasarTani.MVVM.ViewModel
         public string? Name { get; set; }
         public string? Stock { get; set; }
         public string? Price { get; set; }
+        public string? Description { get; set; }
 
 
         public SellerViewAddItemModel()
@@ -47,7 +48,7 @@ namespace PasarTani.MVVM.ViewModel
             {
                 Trace.WriteLine("Approval Mode");
                 int sellerID = SharedData.currentAccountLoginID;
-                bool status = itemServices.AddItem(Name, sellerID, int.Parse(Stock), decimal.Parse(Price), imageUrl);
+                bool status = itemServices.AddItem(Name, sellerID, int.Parse(Stock), decimal.Parse(Price), imageUrl, Description);
 
                 if(status == true)
                 {

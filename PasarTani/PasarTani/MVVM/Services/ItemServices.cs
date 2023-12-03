@@ -122,7 +122,8 @@ namespace PasarTani.MVVM.Services
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
                         Price = reader.GetDecimal(4),
-                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
+                        ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5), // Check for null in case of nullable columns
+                        Description = reader.GetString(6)
                     };
 
                 }
@@ -136,23 +137,35 @@ namespace PasarTani.MVVM.Services
             return item;
         }
 
-        public bool AddItem(string itemName, int sellerId,  int stock, decimal price, string imageUrl)
+        public bool AddItem(string itemName, int sellerId,  int stock, decimal price, string imageUrl, string description)
         {
             conn.Open();
 
-            var sql = "SELECT __add_item(@itemName, @sellerId, @stock, @price, @imageUrl)";
+            var sql = "SELECT __add_item(@sellerId, @itemName,  @stock, @price, @imageUrl, @description)";
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("itemName", itemName);
             cmd.Parameters.AddWithValue("sellerId", sellerId);
+            cmd.Parameters.AddWithValue("itemName", itemName);
             cmd.Parameters.AddWithValue("stock", stock);
             cmd.Parameters.AddWithValue("price", price);
             cmd.Parameters.AddWithValue("imageUrl", imageUrl);
+            cmd.Parameters.AddWithValue("description", description);
 
             try
             {
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
+            }
+            catch (Npgsql.PostgresException ex)
+            {
+                // Log or print exception details for debugging
+                Trace.WriteLine($"PostgresException: {ex.Message}");
+                Trace.WriteLine($"SQL State: {ex.SqlState}");
+                Trace.WriteLine($"Error Code: {ex.Code}");
+                // ... add more details if needed
+
+                conn.Close();
+                return false;
             }
             catch (Exception ex)
             {
@@ -163,19 +176,20 @@ namespace PasarTani.MVVM.Services
 
         }
 
-        public bool UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
+        public bool UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl, string newDesc)
         {
             conn.Open();
 
-            var sql = "SELECT __update_item(@itemId, @newItemName, @sellerId, @newStock, @newPrice, @newImageUrl)";
+            var sql = "SELECT __update_item(@sellerId, @itemId, @newItemName, @newStock, @newPrice, @newImageUrl, @newDesc)";
             Trace.WriteLine(sql);
             using var cmd = new NpgsqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("itemId", itemId);
             cmd.Parameters.AddWithValue("newItemName", newItemName);
-            cmd.Parameters.AddWithValue("sellerId", sellerId);
             cmd.Parameters.AddWithValue("newStock", newStock);
             cmd.Parameters.AddWithValue("newPrice", newPrice);
             cmd.Parameters.AddWithValue("newImageUrl", newImageUrl);
+            cmd.Parameters.AddWithValue("newDesc", newDesc);
 
             try
             {

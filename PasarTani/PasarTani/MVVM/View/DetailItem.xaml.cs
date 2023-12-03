@@ -31,7 +31,7 @@ namespace PasarTani.MVVM.View
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
+            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}, Description: {detailItemDesc.Text}");
             
             
             Trace.WriteLine(detailItemPrice.Text);
@@ -49,7 +49,7 @@ namespace PasarTani.MVVM.View
                 imageUrl = ((Item)DataContext).ImageURL;
             }
 
-            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, int.Parse(detailItemStock.Text), int.Parse(detailItemPrice.Text), imageUrl);
+            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, detailItemName.Text, ((Item)DataContext).SellerID, int.Parse(detailItemStock.Text), int.Parse(detailItemPrice.Text), imageUrl, detailItemDesc.Text);
 
             if(status)
             {
@@ -67,7 +67,7 @@ namespace PasarTani.MVVM.View
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
+            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {detailItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {detailItemPrice.Text}, Stock: {detailItemStock.Text}, URL: {((Item)DataContext).ImageURL}, Description: {detailItemDesc.Text}");
 
             ItemServices itemServices = new ItemServices();
 

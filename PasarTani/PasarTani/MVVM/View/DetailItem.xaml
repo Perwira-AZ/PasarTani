@@ -56,43 +56,87 @@
                                     <TextBox 
                                         x:Name="detailItemName"
                                         Text="{Binding ItemName, UpdateSourceTrigger=PropertyChanged}"
-                                        Foreground="White"
-                                        FontSize="24"
-                                        FontWeight="Bold"
+                                        Foreground="Black"
+                                        FontSize="20"
+                                        FontWeight="Normal"
                                         Margin="0,5,0,0"
+                                        Padding="2,0,2,0"
                                         HorizontalAlignment="Left"
-                                        Background="Transparent"/>
+                                        Background="White">
+                                        <TextBox.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="7"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Harga: " Foreground="White" FontSize="16" VerticalAlignment="Center"/>
                                     <TextBox
                                         x:Name="detailItemPrice"
                                         Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
-                                        Foreground="White"
+                                        Foreground="Black"
                                         FontSize="16"
-                                        FontWeight="Bold"
+                                        FontWeight="Normal"
                                         Margin="0,5,0,0"
+                                        Padding="2,0,2,0"
                                         HorizontalAlignment="Left"
-                                        Background="Transparent"/>
+                                        Background="White">
+                                        <TextBox.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="7"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Stock: " Foreground="White" FontSize="16" VerticalAlignment="Center"/>
                                     <TextBox
                                         x:Name="detailItemStock"
                                         Text="{Binding Stock, UpdateSourceTrigger=PropertyChanged}"
-                                        Foreground="White"
+                                        Foreground="Black"
                                         FontSize="16"
                                         FontWeight="Normal"
                                         Margin="0,5,0,0"
-                                        HorizontalAlignment="Left" Background="Transparent"/>
+                                        Padding="2,0,2,0"
+                                        MinWidth="50"
+                                        HorizontalAlignment="Left" Background="White">
+                                        <TextBox.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="7"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Desc: " Foreground="White" FontSize="16" VerticalAlignment="Center"/>
+                                    <TextBox
+                                        x:Name="detailItemDesc"
+                                        Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                                        Foreground="Black"
+                                        FontSize="12"
+                                        FontWeight="Normal"
+                                        Margin="0,5,0,0"
+                                        Padding="2,0,2,0"
+                                        MinWidth="50"
+                                        TextWrapping="Wrap"
+                                        MaxWidth="220"
+                                        MaxHeight="100"
+                                        HorizontalAlignment="Left" Background="White">
+                                        <TextBox.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="7"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
                                 </StackPanel>
                             </StackPanel>
 
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 30">
                         <Button x:Name="btnEdit"  Background="#FFFFA900" Foreground="White" BorderThickness="0" Width="90" Margin="0,0,10,0" FontSize="16" Click="btnEdit_Click">
-                            Edit
+                            Save
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>

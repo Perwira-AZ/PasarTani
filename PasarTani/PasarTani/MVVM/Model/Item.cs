@@ -15,6 +15,7 @@ namespace PasarTani.Model
         private int _stock;
         private decimal _price;
         public string _imageURL;
+        public string _description;
 
         public int ItemID
         {
@@ -47,6 +48,12 @@ namespace PasarTani.Model
         {
             get { return _imageURL; }
             set { _imageURL = value; }
+        }
+
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
         }
 
         private bool _isSelected; // Tambahkan properti IsSelected

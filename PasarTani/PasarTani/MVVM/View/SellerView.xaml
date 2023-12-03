@@ -46,7 +46,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="120" Height="170" CornerRadius="10" Background="#353340" Margin="10">
+                            <Border Width="120" Height="175" CornerRadius="10" Background="#353340" Margin="10">
 
                                 <Grid>
                                     <StackPanel>
@@ -60,7 +60,7 @@
                                         <TextBlock Text="{Binding Stock, StringFormat='Stock: {0}'}" Foreground="White" FontSize="12" FontWeight="Normal" Width="95" Margin="0,5,0,0" TextAlignment="Center"/>
 
                                         <StackPanel>
-                                            <Button Content="View" Margin="5,0,0,0" Click="ViewButton_Click" HorizontalAlignment="Center"  Width="75" Foreground="Black" Background="#FF00A24C">
+                                            <Button Content="View" Margin="0,5,0,0" Click="ViewButton_Click" HorizontalAlignment="Center"  Width="75" Foreground="Black" Background="#FF00FF79">
                                                 <Button.Resources>
                                                     <Style TargetType="Border">
                                                         <Setter Property="CornerRadius" Value="15"/>

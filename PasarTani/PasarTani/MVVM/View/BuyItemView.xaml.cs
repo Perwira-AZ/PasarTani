@@ -31,7 +31,7 @@ namespace PasarTani.MVVM.View
 
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {buyItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {buyItemPrice.Text}, Stock: {buyItemStock.Text}, URL: {((Item)DataContext).ImageURL}");
+            Trace.WriteLine($"ItemID: {((Item)DataContext).ItemID}, ItemName: {buyItemName.Text}, SellerID: {((Item)DataContext).SellerID},Price: {buyItemPrice.Text}, Stock: {buyItemStock.Text}, URL: {((Item)DataContext).ImageURL}, Description: {buyItemDesc.Text}");
 
 
             Trace.WriteLine(buyItemPrice.Text);
@@ -44,7 +44,7 @@ namespace PasarTani.MVVM.View
 
             string imageUrl = itemServices.GenerateUrlImage(SharedData.temporaryImageFilePath, SharedData.currentAccountLoginID + SharedData.currentAccountName);
 
-            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, buyItemName.Text, ((Item)DataContext).SellerID, int.Parse(buyItemPrice.Text), int.Parse(buyItemStock.Text)-quantity, imageUrl);
+            bool status = itemServices.UpdateItem(((Item)DataContext).ItemID, buyItemName.Text, ((Item)DataContext).SellerID,  int.Parse(buyItemStock.Text)-quantity, int.Parse(buyItemPrice.Text), imageUrl, buyItemDesc.Text);
 
             if (status)
             {
