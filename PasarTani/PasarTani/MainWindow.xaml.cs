@@ -42,15 +42,17 @@ namespace PasarTani
 
         private void ContentControl_LayoutUpdated(object sender, EventArgs e)
         {
-            Trace.WriteLine("Looping Main Window");
+            //Trace.WriteLine("Looping Main Window");
 
 
             if (SharedData.isAccountLogin == true)
             {
                 SignUpViewTitleMenu.Visibility = Visibility.Collapsed;
                 LoginViewTitleMenu.Visibility = Visibility.Collapsed;
-                btnSignOut.Visibility = Visibility.Visible;
 
+
+                ProfileViewTitleMenu.Visibility = Visibility.Visible;
+                btnSignOut.Visibility = Visibility.Visible;
                 lbLoginGreeting.Visibility = Visibility.Visible;
                 
 
@@ -71,6 +73,7 @@ namespace PasarTani
                 SellerViewTitleMenu.Visibility = Visibility.Collapsed;
                 BuyerViewTitleMenu.Visibility = Visibility.Collapsed;
                 btnSignOut.Visibility = Visibility.Collapsed;
+                ProfileViewTitleMenu.Visibility = Visibility.Collapsed;
 
                 lbLoginGreeting.Visibility = Visibility.Collapsed;
 
@@ -88,11 +91,13 @@ namespace PasarTani
             
             btnSignOut.Visibility = Visibility.Collapsed;
             lbLoginGreeting.Visibility = Visibility.Collapsed;
+            ProfileViewTitleMenu.Visibility= Visibility.Collapsed;
 
             SharedData.currentAccountName = "";
             SharedData.temporaryUploadImage = "";
             SharedData.temporaryImageFilePath = "";
             SharedData.currentAccountLoginID = 0;
+            SharedData.currentAddressID = 0;
         }
     }
 }

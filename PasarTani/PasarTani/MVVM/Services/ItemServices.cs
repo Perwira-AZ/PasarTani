@@ -1,4 +1,5 @@
-﻿using Imagekit.Sdk;
+﻿using Imagekit.Models;
+using Imagekit.Sdk;
 using Npgsql;
 using PasarTani.Model;
 using PasarTani.MVVM.Model;
@@ -150,18 +151,19 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
                 return false;
             }
 
-            conn.Close();
         }
 
-        public void UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
+        public bool UpdateItem(int itemId,  string newItemName, int sellerId, int newStock, decimal newPrice, string newImageUrl)
         {
             conn.Open();
 
@@ -178,16 +180,18 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Trace.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
-
-            conn.Close();
         }
 
-        public void DeleteItem(int sellerId, int itemId)
+        public bool DeleteItem(int sellerId, int itemId)
         {
             conn.Open();
 
@@ -199,37 +203,55 @@ namespace PasarTani.MVVM.Services
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
-
-            conn.Close();
         }
 
         public string GenerateUrlImage(string filepath, string uniqueid)
         {
             ImagekitClient imagekit = new ImagekitClient(SharedData.imagePublicKey, SharedData.imagePrivateKey, SharedData.imageProductEndPoint);
 
-            byte[] bytes = File.ReadAllBytes(filepath);
+            Transformation trans = new Transformation()
+                .Width(400)
+                .Height(400)
+                .AspectRatio("4-4")
+                .Quality(40)
+                .Crop("force")
+                .CropMode("extract");
 
-            string filename = uniqueid;
-
-            FileCreateRequest ob = new FileCreateRequest
+            try
             {
-                file = bytes,
-                fileName = filename,
-                useUniqueFileName = true
-            };
-            Result resp2 = imagekit.Upload(ob);
+                byte[] bytes = File.ReadAllBytes(filepath);
 
-            string imageURL = resp2.url;
 
-            Trace.WriteLine(resp2.url);
-            Trace.WriteLine(imageURL);
+                string filename = uniqueid;
 
-            return imageURL;
+                FileCreateRequest ob = new FileCreateRequest
+                {
+                    file = bytes,
+                    fileName = filename,
+                    useUniqueFileName = true
+                };
+                Result resp2 = imagekit.Upload(ob);
+
+                string imageURL = resp2.url;
+
+                Trace.WriteLine(resp2.url);
+                Trace.WriteLine(imageURL);
+
+                return imageURL;
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 }

@@ -3631,11 +3631,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pakhd\\Desktop\\Junproo\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+      "projectUniqueName": "C:\\Users\\pakhd\\Desktop\\NT Ges\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
       "projectName": "PasarTani",
-      "projectPath": "C:\\Users\\pakhd\\Desktop\\Junproo\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
+      "projectPath": "C:\\Users\\pakhd\\Desktop\\NT Ges\\PasarTani\\PasarTani\\PasarTani\\PasarTani.csproj",
       "packagesPath": "C:\\Users\\pakhd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pakhd\\Desktop\\Junproo\\PasarTani\\PasarTani\\PasarTani\\obj\\",
+      "outputPath": "C:\\Users\\pakhd\\Desktop\\NT Ges\\PasarTani\\PasarTani\\PasarTani\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

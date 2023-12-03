@@ -40,7 +40,10 @@ namespace PasarTani.MVVM.Services
                         Name = reader.GetString(1),
                         PhoneNumber = reader.GetString(2),
                         Email = reader.GetString(3),
-                        Password = reader.GetString(4)
+                        Password = reader.GetString(4),
+                        AddressId = reader.GetInt32(5),
+                        ImageUrl = reader.GetString(6)
+
                     };
 
                     customers.Add(customer);
@@ -79,7 +82,10 @@ namespace PasarTani.MVVM.Services
                         Name = reader.GetString(1),
                         PhoneNumber = reader.GetString(2),
                         Email = reader.GetString(3),
-                        Password = reader.GetString(4)
+                        Password = reader.GetString(4),
+                        AddressId = reader.GetInt32(5),
+                        ImageUrl = reader.GetString(6)
+
                     };
                 }
                 else
@@ -97,51 +103,61 @@ namespace PasarTani.MVVM.Services
             return customer;
         }
 
-        public void AddCustomer(string name, string phoneNumber, string email, string password)
+        public bool AddCustomer(string name, string phoneNumber, string email, string password, int addressid, string imageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __add_customer(@name, @phoneNumber, @email, @password)";
+            var sql = "SELECT __add_customer(@name, @phoneNumber, @email, @password, @addressid, @imageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("name", name);
             cmd.Parameters.AddWithValue("phoneNumber", phoneNumber);
             cmd.Parameters.AddWithValue("email", email);
             cmd.Parameters.AddWithValue("password", password);
+            cmd.Parameters.AddWithValue("addressid", addressid);
+            cmd.Parameters.AddWithValue("imageUrl", imageUrl);
 
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
 
-            conn.Close();
+            
         }
 
-        public void UpdateCustomer(int customerId, string name, string phoneNumber, string email, string password)
+        public bool UpdateCustomer(int customerId, string name, string phoneNumber, string email, string password,string imageUrl)
         {
             conn.Open();
 
-            var sql = "SELECT __update_customer(@customerId, @name, @phoneNumber, @email, @password)";
+            var sql = "SELECT __update_customer(@customerId, @name, @phoneNumber, @email, @password, @imageUrl)";
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("customerId", customerId);
             cmd.Parameters.AddWithValue("name", name);
             cmd.Parameters.AddWithValue("phoneNumber", phoneNumber);
             cmd.Parameters.AddWithValue("email", email);
             cmd.Parameters.AddWithValue("password", password);
+            cmd.Parameters.AddWithValue("imageUrl", imageUrl);
 
             try
             {
                 cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+                conn.Close();
+                return false;
             }
 
-            conn.Close();
         }
 
         public void DeleteCustomer(int customerId)

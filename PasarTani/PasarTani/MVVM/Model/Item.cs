@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PasarTani.Model
 {
-    internal class Item
+    internal class Item : INotifyPropertyChanged
     {
         private int _itemID;
         private string _itemName;
@@ -46,6 +47,32 @@ namespace PasarTani.Model
         {
             get { return _imageURL; }
             set { _imageURL = value; }
+        }
+
+        private bool _isSelected; // Tambahkan properti IsSelected
+
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+            set
+            {
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+                }
+            }
+        }
+
+        // Properti lain dari kelas Item
+        // ...
+
+        // Implementasi INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
