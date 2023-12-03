@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PasarTani.MVVM.Services
 {
@@ -43,6 +44,7 @@ namespace PasarTani.MVVM.Services
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
                         Price = reader.GetDecimal(4),
+                        Description= reader.GetString(6),
                         ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
 
@@ -83,6 +85,7 @@ namespace PasarTani.MVVM.Services
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
                         Price = reader.GetDecimal(4),
+                        Description = reader.GetString(6),
                         ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5) // Check for null in case of nullable columns
                     };
 
@@ -122,10 +125,10 @@ namespace PasarTani.MVVM.Services
                         SellerID = reader.GetInt32(2),
                         Stock = reader.GetInt32(3),
                         Price = reader.GetDecimal(4),
+                        Description = reader.GetString(6),
                         ImageURL = reader.IsDBNull(5) ? null : reader.GetString(5), // Check for null in case of nullable columns
-                        Description = reader.GetString(6)
                     };
-
+             
                 }
             }
             catch (Exception ex)

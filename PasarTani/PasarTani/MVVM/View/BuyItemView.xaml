@@ -85,23 +85,25 @@
                                     FontSize="16"
                                     FontWeight="Normal"
                                     Margin="0,5,0,0"
+                                    TextWrapping="Wrap"
                                     HorizontalAlignment="Left"
                                 />
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label Foreground="White" FontWeight="Bold" VerticalAlignment="Center"> Quantity: </Label>
+                        <Label Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom"> Quantity: </Label>
                         <TextBox
                             x:Name="buyQuantity"
                             Text=""
                             Foreground="Black"
                             FontSize="16"
                             FontWeight="Normal"
-                            Margin="0,5,0,0"
+                            Margin="0,15,0,0"
                             HorizontalAlignment="Center" 
                             Width="50"
                             PreviewTextInput="NumberValidationTextBox"
                             TextChanged="UpdateQty"
+                            VerticalAlignment="Center"
                             >
                             <TextBox.Resources>
                                 <Style TargetType="Border">

@@ -42,7 +42,7 @@ namespace PasarTani.MVVM.View
         {
             if (sender is FrameworkElement frameworkElement && frameworkElement.DataContext is Item selectedItem)
             {
-                Trace.WriteLine($"Edit clicked for ItemID: {selectedItem.ItemID}, ItemName: {selectedItem.ItemName}, Price: {selectedItem.Price}");
+                Trace.WriteLine($"Edit clicked for ItemID: {selectedItem.ItemID}, ItemName: {selectedItem.ItemName}, Price: {selectedItem.Price}, Description: {selectedItem.Description}");
 
 
                 DetailItem detailItemWindow = new DetailItem();
